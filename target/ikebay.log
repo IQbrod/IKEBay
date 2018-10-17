@@ -1,0 +1,71 @@
+2018-10-17 13:05:14.051  WARN 5249 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8761/config/ikebay/dev/master": Connexion refusée (Connection refused); nested exception is java.net.ConnectException: Connexion refusée (Connection refused)
+2018-10-17 13:05:14.058  INFO 5249 --- [restartedMain] ikb.IkebayApp                            : The following profiles are active: dev,swagger
+2018-10-17 13:05:17.919 DEBUG 5249 --- [restartedMain] ikb.config.AsyncConfiguration            : Creating Async Task Executor
+2018-10-17 13:05:19.147 DEBUG 5249 --- [restartedMain] ikb.config.MetricsConfiguration          : Registering JVM gauges
+2018-10-17 13:05:19.321 DEBUG 5249 --- [restartedMain] ikb.config.MetricsConfiguration          : Monitoring the datasource
+2018-10-17 13:05:19.338 DEBUG 5249 --- [restartedMain] ikb.config.MetricsConfiguration          : Initializing Metrics JMX reporting
+2018-10-17 13:05:21.529 DEBUG 5249 --- [restartedMain] ikb.config.CacheConfiguration            : Configuring Hazelcast
+2018-10-17 13:05:21.596  WARN 5249 --- [restartedMain] ikb.config.CacheConfiguration            : No discovery service is set up, Hazelcast cannot create a cluster.
+2018-10-17 13:05:21.682  INFO 5249 --- [restartedMain] com.hazelcast.instance.AddressPicker     : [LOCAL] [dev] [3.9.4] Prefer IPv4 stack is true.
+2018-10-17 13:05:21.694  INFO 5249 --- [restartedMain] com.hazelcast.instance.AddressPicker     : [LOCAL] [dev] [3.9.4] Picked [130.190.108.62]:5701, using socket ServerSocket[addr=/0:0:0:0:0:0:0:0,localport=5701], bind any local is true
+2018-10-17 13:05:21.742  INFO 5249 --- [restartedMain] com.hazelcast.system                     : [130.190.108.62]:5701 [dev] [3.9.4] Hazelcast 3.9.4 (20180420 - b8001d5) starting at [130.190.108.62]:5701
+2018-10-17 13:05:21.743  INFO 5249 --- [restartedMain] com.hazelcast.system                     : [130.190.108.62]:5701 [dev] [3.9.4] Copyright (c) 2008-2018, Hazelcast, Inc. All Rights Reserved.
+2018-10-17 13:05:21.743  INFO 5249 --- [restartedMain] com.hazelcast.system                     : [130.190.108.62]:5701 [dev] [3.9.4] Configured Hazelcast Serialization version: 1
+2018-10-17 13:05:22.119  INFO 5249 --- [restartedMain] c.h.s.i.o.impl.BackpressureRegulator     : [130.190.108.62]:5701 [dev] [3.9.4] Backpressure is disabled
+2018-10-17 13:05:23.103  INFO 5249 --- [restartedMain] c.h.s.i.o.impl.OperationExecutorImpl     : [130.190.108.62]:5701 [dev] [3.9.4] Starting 4 partition threads and 3 generic threads (1 dedicated for priority tasks)
+2018-10-17 13:05:23.119  INFO 5249 --- [restartedMain] c.h.internal.diagnostics.Diagnostics     : [130.190.108.62]:5701 [dev] [3.9.4] Diagnostics disabled. To enable add -Dhazelcast.diagnostics.enabled=true to the JVM arguments.
+2018-10-17 13:05:23.131  INFO 5249 --- [restartedMain] com.hazelcast.core.LifecycleService      : [130.190.108.62]:5701 [dev] [3.9.4] [130.190.108.62]:5701 is STARTING
+2018-10-17 13:05:23.168  WARN 5249 --- [restartedMain] com.hazelcast.instance.Node              : [130.190.108.62]:5701 [dev] [3.9.4] No join method is enabled! Starting standalone.
+2018-10-17 13:05:23.168  INFO 5249 --- [restartedMain] com.hazelcast.system                     : [130.190.108.62]:5701 [dev] [3.9.4] Cluster version set to 3.9
+2018-10-17 13:05:23.202  INFO 5249 --- [restartedMain] com.hazelcast.core.LifecycleService      : [130.190.108.62]:5701 [dev] [3.9.4] [130.190.108.62]:5701 is STARTED
+2018-10-17 13:05:23.241 DEBUG 5249 --- [restartedMain] ikb.config.CacheConfiguration            : Starting HazelcastCacheManager
+2018-10-17 13:05:23.534 DEBUG 5249 --- [restartedMain] ikb.config.LiquibaseConfiguration        : Configuring Liquibase
+2018-10-17 13:05:23.892  WARN 5249 --- [ikebay-Executor-1] i.g.j.c.liquibase.AsyncSpringLiquibase   : Starting Liquibase asynchronously, your database might not be ready at startup!
+2018-10-17 13:05:26.077 DEBUG 5249 --- [ikebay-Executor-1] i.g.j.c.liquibase.AsyncSpringLiquibase   : Liquibase has updated your database in 2183 ms
+2018-10-17 13:05:26.547  INFO 5249 --- [restartedMain] c.h.h.HazelcastCacheRegionFactory        : Starting up HazelcastCacheRegionFactory
+2018-10-17 13:05:26.550  INFO 5249 --- [restartedMain] c.h.h.i.IHazelcastInstanceFactory        : Using existing HazelcastInstance [ikebay].
+2018-10-17 13:05:28.923 DEBUG 5249 --- [restartedMain] ikb.config.WebConfigurer                 : Registering CORS filter
+2018-10-17 13:05:29.145  INFO 5249 --- [restartedMain] ikb.config.WebConfigurer                 : Web application configuration, using profiles: dev
+2018-10-17 13:05:29.146 DEBUG 5249 --- [restartedMain] ikb.config.WebConfigurer                 : Initializing Metrics registries
+2018-10-17 13:05:29.154 DEBUG 5249 --- [restartedMain] ikb.config.WebConfigurer                 : Registering Metrics Filter
+2018-10-17 13:05:29.161 DEBUG 5249 --- [restartedMain] ikb.config.WebConfigurer                 : Registering Metrics Servlet
+2018-10-17 13:05:29.167 DEBUG 5249 --- [restartedMain] ikb.config.WebConfigurer                 : Initialize H2 console
+2018-10-17 13:05:29.169  INFO 5249 --- [restartedMain] ikb.config.WebConfigurer                 : Web application fully configured
+2018-10-17 13:05:29.669 DEBUG 5249 --- [restartedMain] ikb.security.jwt.TokenProvider           : Using a Base64-encoded JWT secret key
+2018-10-17 13:05:33.348 DEBUG 5249 --- [restartedMain] ikb.config.DatabaseConfiguration         : Starting H2 database
+2018-10-17 13:05:33.841  WARN 5249 --- [restartedMain] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-10-17 13:05:33.854  WARN 5249 --- [restartedMain] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-10-17 13:05:34.700 DEBUG 5249 --- [restartedMain] i.g.j.c.apidoc.SwaggerAutoConfiguration  : Starting Swagger
+2018-10-17 13:05:34.746 DEBUG 5249 --- [restartedMain] i.g.j.c.apidoc.SwaggerAutoConfiguration  : Started Swagger in 45 ms
+2018-10-17 13:05:35.422  INFO 5249 --- [restartedMain] c.h.i.p.impl.PartitionStateManager       : [130.190.108.62]:5701 [dev] [3.9.4] Initializing cluster partition table arrangement...
+2018-10-17 13:05:36.850  INFO 5249 --- [restartedMain] ikb.IkebayApp                            : Started IkebayApp in 27.99 seconds (JVM running for 29.306)
+2018-10-17 13:05:36.868  INFO 5249 --- [restartedMain] ikb.IkebayApp                            : 
+----------------------------------------------------------
+	Application 'ikebay' is running! Access URLs:
+	Local: 		http://localhost:8080/
+	External: 	http://127.0.1.1:8080/
+	Profile(s): 	[dev, swagger]
+----------------------------------------------------------
+2018-10-17 13:06:06.342 DEBUG 5249 --- [XNIO-2 task-6] ikb.aop.logging.LoggingAspect            : Enter: ikb.repository.CustomAuditEventRepository.add() with argument[s] = [AuditEvent [timestamp=2018-10-17T11:06:06.242Z, principal=anonymousUser, type=AUTHORIZATION_FAILURE, data={details=org.springframework.security.web.authentication.WebAuthenticationDetails@957e: RemoteIpAddress: 127.0.0.1; SessionId: null, type=org.springframework.security.access.AccessDeniedException, message=Access is denied}]]
+2018-10-17 13:06:06.368 DEBUG 5249 --- [XNIO-2 task-6] ikb.aop.logging.LoggingAspect            : Exit: ikb.repository.CustomAuditEventRepository.add() with result = null
+2018-10-17 13:06:06.397  WARN 5249 --- [XNIO-2 task-6] o.z.problem.spring.common.AdviceTrait    : Unauthorized: Full authentication is required to access this resource
+2018-10-17 13:06:06.640  WARN 5249 --- [XNIO-2 task-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved exception caused by handler execution: org.springframework.security.authentication.InsufficientAuthenticationException: Full authentication is required to access this resource
+2018-10-17 13:06:24.551 DEBUG 5249 --- [XNIO-2 task-12] ikb.aop.logging.LoggingAspect            : Enter: ikb.web.rest.UserJWTController.authorize() with argument[s] = [LoginVM{username='admin', rememberMe=null}]
+2018-10-17 13:06:24.718 DEBUG 5249 --- [XNIO-2 task-12] ikb.security.DomainUserDetailsService    : Authenticating admin
+2018-10-17 13:06:25.206 DEBUG 5249 --- [XNIO-2 task-13] ikb.aop.logging.LoggingAspect            : Enter: ikb.web.rest.UserJWTController.authorize() with argument[s] = [LoginVM{username='admin', rememberMe=null}]
+2018-10-17 13:06:25.207 DEBUG 5249 --- [XNIO-2 task-13] ikb.security.DomainUserDetailsService    : Authenticating admin
+2018-10-17 13:06:25.326 DEBUG 5249 --- [XNIO-2 task-12] ikb.aop.logging.LoggingAspect            : Enter: ikb.repository.CustomAuditEventRepository.add() with argument[s] = [AuditEvent [timestamp=2018-10-17T11:06:25.325Z, principal=admin, type=AUTHENTICATION_SUCCESS, data={}]]
+2018-10-17 13:06:25.369 DEBUG 5249 --- [XNIO-2 task-12] ikb.aop.logging.LoggingAspect            : Exit: ikb.repository.CustomAuditEventRepository.add() with result = null
+2018-10-17 13:06:25.381 DEBUG 5249 --- [XNIO-2 task-13] ikb.aop.logging.LoggingAspect            : Enter: ikb.repository.CustomAuditEventRepository.add() with argument[s] = [AuditEvent [timestamp=2018-10-17T11:06:25.380Z, principal=admin, type=AUTHENTICATION_SUCCESS, data={}]]
+2018-10-17 13:06:25.390 DEBUG 5249 --- [XNIO-2 task-13] ikb.aop.logging.LoggingAspect            : Exit: ikb.repository.CustomAuditEventRepository.add() with result = null
+2018-10-17 13:06:25.595 DEBUG 5249 --- [XNIO-2 task-12] ikb.aop.logging.LoggingAspect            : Exit: ikb.web.rest.UserJWTController.authorize() with result = <200 OK,ikb.web.rest.UserJWTController$JWTToken@5c483e18,{Authorization=[Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTUzOTg2MDc4NX0.y1qWJtSAVm1TAdR7VcPLv7dfXA8LK-7NdIGmSxCfKx3CmDpcgfk4cvGEianm7_84kiUh5qPgSDMIXSIbCTB-dw]}>
+2018-10-17 13:06:25.595 DEBUG 5249 --- [XNIO-2 task-13] ikb.aop.logging.LoggingAspect            : Exit: ikb.web.rest.UserJWTController.authorize() with result = <200 OK,ikb.web.rest.UserJWTController$JWTToken@76a7e80b,{Authorization=[Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTUzOTg2MDc4NX0.y1qWJtSAVm1TAdR7VcPLv7dfXA8LK-7NdIGmSxCfKx3CmDpcgfk4cvGEianm7_84kiUh5qPgSDMIXSIbCTB-dw]}>
+2018-10-17 13:06:25.667 DEBUG 5249 --- [XNIO-2 task-14] ikb.aop.logging.LoggingAspect            : Enter: ikb.web.rest.AccountResource.getAccount() with argument[s] = []
+2018-10-17 13:06:25.684 DEBUG 5249 --- [XNIO-2 task-14] ikb.aop.logging.LoggingAspect            : Enter: ikb.service.UserService.getUserWithAuthorities() with argument[s] = []
+2018-10-17 13:06:25.704 DEBUG 5249 --- [XNIO-2 task-14] ikb.aop.logging.LoggingAspect            : Exit: ikb.service.UserService.getUserWithAuthorities() with result = Optional[User{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated='true', langKey='en', activationKey='null'}]
+2018-10-17 13:06:25.710 DEBUG 5249 --- [XNIO-2 task-14] ikb.aop.logging.LoggingAspect            : Exit: ikb.web.rest.AccountResource.getAccount() with result = UserDTO{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated=true, langKey='en', createdBy=system, createdDate=2018-10-17T11:05:26.038Z, lastModifiedBy='system', lastModifiedDate=null, authorities=[ROLE_USER, ROLE_ADMIN]}
+2018-10-17 13:06:25.751 DEBUG 5249 --- [XNIO-2 task-15] ikb.aop.logging.LoggingAspect            : Enter: ikb.web.rest.AccountResource.getAccount() with argument[s] = []
+2018-10-17 13:06:25.754 DEBUG 5249 --- [XNIO-2 task-15] ikb.aop.logging.LoggingAspect            : Enter: ikb.service.UserService.getUserWithAuthorities() with argument[s] = []
+2018-10-17 13:06:25.764 DEBUG 5249 --- [XNIO-2 task-15] ikb.aop.logging.LoggingAspect            : Exit: ikb.service.UserService.getUserWithAuthorities() with result = Optional[User{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated='true', langKey='en', activationKey='null'}]
+2018-10-17 13:06:25.765 DEBUG 5249 --- [XNIO-2 task-15] ikb.aop.logging.LoggingAspect            : Exit: ikb.web.rest.AccountResource.getAccount() with result = UserDTO{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated=true, langKey='en', createdBy=system, createdDate=2018-10-17T11:05:26.038Z, lastModifiedBy='system', lastModifiedDate=null, authorities=[ROLE_USER, ROLE_ADMIN]}
+2018-10-17 13:33:44.038  INFO 5249 --- [Thread-1] ikb.config.CacheConfiguration            : Closing Cache Manager
