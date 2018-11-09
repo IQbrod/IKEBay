@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.transaction.annotation.Transactional;
 
+import ikb.product.Product;
 import ikb.repository.ProductRepository;
 import ikb.service.dto.ProductDTO;
 
@@ -45,7 +46,7 @@ public class ProductService {
         productRepository.save(product);
         return product;
     }
-    
+
     //public void UpdateProduct();
     //public void DeleteProduct(); //note : should instead set a flag (named for example 'hidden') in the product), as we want to keep it in database
     //public void getCategoryProducts(Long categoryId);
