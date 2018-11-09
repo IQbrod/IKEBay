@@ -30,13 +30,28 @@ public class ProductMapper {
             Product product = new Product();
             product.setId(productDTO.getId());
             product.setDescription(productDTO.getDescription());
-            product.setId(productDTO.getId());
-            product.setId(productDTO.getId());
-            product.setId(productDTO.getId());
-            product.setId(productDTO.getId());
+            product.setName(productDTO.getName());
+            product.setSpecification(productDTO.getSpecification());
+            product.setPhotolink(productDTO.getPhotolink());
+            product.setPrice(productDTO.getPrice());
 
+            return product;
+        }
+    }
+
+    public List<Product> productDTOsToProducts(List<ProductDTO> productDTOs) {
+        return productDTOs.stream()
+            .filter(Objects::nonNull)
+            .map(this::productDTOToProduct)
+            .collect(Collectors.toList());
+    }
+
+    public Product productFromId(int id) {
+        if ((Integer)id == null) {
             return null;
         }
-       
+        Product product = new Product();
+        product.setId(id);
+        return product;
     }
 }

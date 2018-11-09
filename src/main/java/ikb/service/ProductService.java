@@ -20,13 +20,16 @@ import ikb.service.dto.ProductDTO;
 @Transactional
 public class ProductService {
 
+    private final Logger log = LoggerFactory.getLogger(ProductService.class);
+
     private final ProductRepository productRepository;
 
-    public ProductService(ProductRepository productRepository) {
+    public ProductService(ProductRepository productRepository){
         this.productRepository = productRepository;
     }
 
-    private final Logger log = LoggerFactory.getLogger(ProductService.class);
+    public void getAllProducts(){
+    }
 
     public Page<ProductDTO> getAllManagedProducts(Pageable pageable){       
         return productRepository.findAll(pageable).map(ProductDTO::new);
@@ -36,6 +39,7 @@ public class ProductService {
     }
     public void createProduct(String name, String description, String specification, String photolink, float price){
 
+        
     }
     //public void UpdateProduct();
     //public void DeleteProduct(); //note : should instead set a flag (named for example 'hidden') in the product), as we want to keep it in database
