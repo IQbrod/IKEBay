@@ -1,6 +1,4 @@
-package ikb.domain;
-
-import ikb.config.Constants;
+package ikb.product;
 
 /**
  * A sellable product.
