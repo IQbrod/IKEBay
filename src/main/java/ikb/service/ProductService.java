@@ -40,10 +40,18 @@ public class ProductService {
         return productRepository.findOneById(id);
 
     }
-    public void createProduct(String name, String description, String specification, String photolink, float price){
-
-        
+    public Product createProduct(ProductDTO productDTO){
+        Product product = new Product();
+        product.setId(productDTO.getId());
+        product.setDescription(productDTO.getDescription());
+        product.setName(productDTO.getName());
+        product.setPhotolink(productDTO.getPhotolink());
+        product.setPrice(productDTO.getPrice());
+        product.setSpecification(productDTO.getSpecification());
+        productRepository.save(product);
+        return product;
     }
+    
     //public void UpdateProduct();
     //public void DeleteProduct(); //note : should instead set a flag (named for example 'hidden') in the product), as we want to keep it in database
     //public void getCategoryProducts(Long categoryId);
