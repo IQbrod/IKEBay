@@ -3,8 +3,7 @@ package ikb.service;
 import ikb.config.Constants;
 import ikb.domain.Authority;
 import ikb.domain.User;
-import ikb.repository.AuthorityRepository;
-import ikb.repository.UserRepository;
+import ikb.repository.ProductRepository;
 import ikb.security.AuthoritiesConstants;
 import ikb.security.SecurityUtils;
 import ikb.service.dto.UserDTO;
@@ -17,7 +16,6 @@ import org.springframework.cache.CacheManager;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,28 +31,34 @@ import ikb.product.Product;
  */
 @Service
 @Transactional
-public class UserService {
+public class ProductService {
 
-    private final Logger log = LoggerFactory.getLogger(UserService.class);
+    private final Logger log = LoggerFactory.getLogger(ProductService.class);
 
-    private final UserRepository userRepository;
+    private final ProductRepository ProductRepository;
 
-    private final PasswordEncoder passwordEncoder;
-
-    private final AuthorityRepository authorityRepository;
 
     private final CacheManager cacheManager;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository, CacheManager cacheManager) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.authorityRepository = authorityRepository;
+    public ProductService(ProductRepository ProductRepository, CacheManager cacheManager) {
+        this.ProductRepository = ProductRepository;
         this.cacheManager = cacheManager;
     }
 
+    public void getAllProducts();
+    public void getProduct(Long id);
+    public void createProduct(String name, String description, String specification, String photolink, float price);
+    //public void UpdateProduct();
+    //public void DeleteProduct(); //note : should instead set a flag (named for example 'hidden') in the product), as we want to keep it in database
+    //public void getCategoryProducts(Long categoryId);
+    public void getAllProducts();
+    public void getAllProducts();
+    public void getAllProducts();
+
+
     public Optional<User> activateRegistration(String key) {
         log.debug("Activating user for activation key {}", key);
-        return userRepository.findOneByActivationKey(key)
+        return ProductRepository.findOneByActivationKey(key)
             .map(user -> {
                 // activate given user for the registration key.
                 user.setActivated(true);
@@ -67,10 +71,9 @@ public class UserService {
 
     public Optional<User> completePasswordReset(String newPassword, String key) {
         log.debug("Reset user password for reset key {}", key);
-        return userRepository.findOneByResetKey(key)
+        return ProductRepository.findOneByResetKey(key)
             .filter(user -> user.getResetDate().isAfter(Instant.now().minusSeconds(86400)))
             .map(user -> {
-                user.setPassword(passwordEncoder.encode(newPassword));
                 user.setResetKey(null);
                 user.setResetDate(null);
                 this.clearUserCaches(user);
@@ -79,7 +82,7 @@ public class UserService {
     }
 
     public Optional<User> requestPasswordReset(String mail) {
-        return userRepository.findOneByEmailIgnoreCase(mail)
+        return ProductRepository.findOneByEmailIgnoreCase(mail)
             .filter(User::getActivated)
             .map(user -> {
                 user.setResetKey(RandomUtil.generateResetKey());
@@ -90,20 +93,19 @@ public class UserService {
     }
 
     public User registerUser(UserDTO userDTO, String password) {
-        userRepository.findOneByLogin(userDTO.getLogin().toLowerCase()).ifPresent(existingUser -> {
+        ProductRepository.findOneByLogin(userDTO.getLogin().toLowerCase()).ifPresent(existingUser -> {
             boolean removed = removeNonActivatedUser(existingUser);
             if (!removed) {
                 throw new LoginAlreadyUsedException();
             }
         });
-        userRepository.findOneByEmailIgnoreCase(userDTO.getEmail()).ifPresent(existingUser -> {
+        ProductRepository.findOneByEmailIgnoreCase(userDTO.getEmail()).ifPresent(existingUser -> {
             boolean removed = removeNonActivatedUser(existingUser);
             if (!removed) {
                 throw new EmailAlreadyUsedException();
             }
         });
         User newUser = new User();
-        String encryptedPassword = passwordEncoder.encode(password);
         newUser.setLogin(userDTO.getLogin().toLowerCase());
         // new user gets initially a generated password
         newUser.setPassword(encryptedPassword);
@@ -117,9 +119,8 @@ public class UserService {
         // new user gets registration key
         newUser.setActivationKey(RandomUtil.generateActivationKey());
         Set<Authority> authorities = new HashSet<>();
-        authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
-        userRepository.save(newUser);
+        ProductRepository.save(newUser);
         this.clearUserCaches(newUser);
         log.debug("Created Information for User: {}", newUser);
         return newUser;
@@ -128,8 +129,8 @@ public class UserService {
         if(existingUser.getActivated()) {
              return false;
         }
-        userRepository.delete(existingUser);
-        userRepository.flush();
+        ProductRepository.delete(existingUser);
+        ProductRepository.flush();
         this.clearUserCaches(existingUser);
         return true;
     }
@@ -146,20 +147,18 @@ public class UserService {
         } else {
             user.setLangKey(userDTO.getLangKey());
         }
-        String encryptedPassword = passwordEncoder.encode(RandomUtil.generatePassword());
         user.setPassword(encryptedPassword);
         user.setResetKey(RandomUtil.generateResetKey());
         user.setResetDate(Instant.now());
         user.setActivated(true);
         if (userDTO.getAuthorities() != null) {
             Set<Authority> authorities = userDTO.getAuthorities().stream()
-                .map(authorityRepository::findById)
                 .filter(Optional::isPresent)
                 .map(Optional::get)
                 .collect(Collectors.toSet());
             user.setAuthorities(authorities);
         }
-        userRepository.save(user);
+        ProductRepository.save(user);
         this.clearUserCaches(user);
         log.debug("Created Information for User: {}", user);
         return user;
@@ -176,7 +175,7 @@ public class UserService {
      */
     public void updateUser(String firstName, String lastName, String email, String langKey, String imageUrl) {
         SecurityUtils.getCurrentUserLogin()
-            .flatMap(userRepository::findOneByLogin)
+            .flatMap(ProductRepository::findOneByLogin)
             .ifPresent(user -> {
                 user.setFirstName(firstName);
                 user.setLastName(lastName);
@@ -195,7 +194,7 @@ public class UserService {
      * @return updated user
      */
     public Optional<UserDTO> updateUser(UserDTO userDTO) {
-        return Optional.of(userRepository
+        return Optional.of(ProductRepository
             .findById(userDTO.getId()))
             .filter(Optional::isPresent)
             .map(Optional::get)
@@ -208,13 +207,6 @@ public class UserService {
                 user.setImageUrl(userDTO.getImageUrl());
                 user.setActivated(userDTO.isActivated());
                 user.setLangKey(userDTO.getLangKey());
-                Set<Authority> managedAuthorities = user.getAuthorities();
-                managedAuthorities.clear();
-                userDTO.getAuthorities().stream()
-                    .map(authorityRepository::findById)
-                    .filter(Optional::isPresent)
-                    .map(Optional::get)
-                    .forEach(managedAuthorities::add);
                 this.clearUserCaches(user);
                 log.debug("Changed Information for User: {}", user);
                 return user;
@@ -223,8 +215,8 @@ public class UserService {
     }
 
     public void deleteUser(String login) {
-        userRepository.findOneByLogin(login).ifPresent(user -> {
-            userRepository.delete(user);
+        ProductRepository.findOneByLogin(login).ifPresent(user -> {
+            ProductRepository.delete(user);
             this.clearUserCaches(user);
             log.debug("Deleted User: {}", user);
         });
@@ -232,13 +224,9 @@ public class UserService {
 
     public void changePassword(String currentClearTextPassword, String newPassword) {
         SecurityUtils.getCurrentUserLogin()
-            .flatMap(userRepository::findOneByLogin)
+            .flatMap(ProductRepository::findOneByLogin)
             .ifPresent(user -> {
                 String currentEncryptedPassword = user.getPassword();
-                if (!passwordEncoder.matches(currentClearTextPassword, currentEncryptedPassword)) {
-                    throw new InvalidPasswordException();
-                }
-                String encryptedPassword = passwordEncoder.encode(newPassword);
                 user.setPassword(encryptedPassword);
                 this.clearUserCaches(user);
                 log.debug("Changed password for User: {}", user);
@@ -247,22 +235,22 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public Page<UserDTO> getAllManagedUsers(Pageable pageable) {
-        return userRepository.findAllByLoginNot(pageable, Constants.ANONYMOUS_USER).map(UserDTO::new);
+        return ProductRepository.findAllByLoginNot(pageable, Constants.ANONYMOUS_USER).map(UserDTO::new);
     }
 
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthoritiesByLogin(String login) {
-        return userRepository.findOneWithAuthoritiesByLogin(login);
+        return ProductRepository.findOneWithAuthoritiesByLogin(login);
     }
 
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthorities(Long id) {
-        return userRepository.findOneWithAuthoritiesById(id);
+        return ProductRepository.findOneWithAuthoritiesById(id);
     }
 
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthorities() {
-        return SecurityUtils.getCurrentUserLogin().flatMap(userRepository::findOneWithAuthoritiesByLogin);
+        return SecurityUtils.getCurrentUserLogin().flatMap(ProductRepository::findOneWithAuthoritiesByLogin);
     }
 
     /**
@@ -272,24 +260,17 @@ public class UserService {
      */
     @Scheduled(cron = "0 0 1 * * ?")
     public void removeNotActivatedUsers() {
-        userRepository
+        ProductRepository
             .findAllByActivatedIsFalseAndCreatedDateBefore(Instant.now().minus(3, ChronoUnit.DAYS))
             .forEach(user -> {
                 log.debug("Deleting not activated user {}", user.getLogin());
-                userRepository.delete(user);
+                ProductRepository.delete(user);
                 this.clearUserCaches(user);
             });
     }
 
-    /**
-     * @return a list of all the authorities
-     */
-    public List<String> getAuthorities() {
-        return authorityRepository.findAll().stream().map(Authority::getName).collect(Collectors.toList());
-    }
-
     private void clearUserCaches(User user) {
-        Objects.requireNonNull(cacheManager.getCache(UserRepository.USERS_BY_LOGIN_CACHE)).evict(user.getLogin());
-        Objects.requireNonNull(cacheManager.getCache(UserRepository.USERS_BY_EMAIL_CACHE)).evict(user.getEmail());
+        Objects.requireNonNull(cacheManager.getCache(ProductRepository.USERS_BY_LOGIN_CACHE)).evict(user.getLogin());
+        Objects.requireNonNull(cacheManager.getCache(ProductRepository.USERS_BY_EMAIL_CACHE)).evict(user.getEmail());
     }
 }
