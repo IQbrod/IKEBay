@@ -90,7 +90,7 @@ public class ProductResource {
         } else {
             Product newProduct = productService.createProduct(productDTO);
             return ResponseEntity.created(new URI("/api/products/" + newProduct.getId()))
-                .headers(HeaderUtil.createAlert( "A user is created with identifier " + newProduct.getId(), Integer.toString(newProduct.getId())))
+                .headers(HeaderUtil.createAlert( "A user is created with identifier " + newProduct.getId(), Long.toString(newProduct.getId())))
                 .body(newProduct);
         }
     }
