@@ -1,4 +1,4 @@
-package ikb.domain;
+package ikb.product;
 
 import ikb.config.Constants;
 
