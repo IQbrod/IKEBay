@@ -22,7 +22,6 @@ import org.slf4j.LoggerFactory;
 import ikb.service.ProductService;
 import ikb.config.Constants;
 import ikb.product.Product;
-import ikb.repository.ProductRepository;
 import ikb.security.AuthoritiesConstants;
 import ikb.service.dto.ProductDTO;
 
@@ -36,12 +35,10 @@ public class ProductResource {
 
     private final Logger log;
     private final ProductService productService;
-    private final ProductRepository productRepository;
 
-    public ProductResource(ProductService productService, ProductRepository productRepository) {
+    public ProductResource(ProductService productService) {
         this.log = LoggerFactory.getLogger(ProductResource.class);
         this.productService = productService;
-        this.productRepository = productRepository;
     }
 
     /**
