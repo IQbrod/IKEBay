@@ -1,6 +1,13 @@
-package ikb.domain;
+package ikb.product;
 
-import ikb.config.Constants;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
+import java.util.Objects;
+
+import java.io.Serializable;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A sellable product.
