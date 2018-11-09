@@ -5,7 +5,7 @@ import javax.validation.constraints.Size;
 import ikb.product.Product;
 
 public class ProductDTO {
-    private int id;
+    private Long id;
 
     @Size(max = 1000)
     private String description;
@@ -34,11 +34,11 @@ public class ProductDTO {
         this.price = product.getPrice();
     }
 
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
