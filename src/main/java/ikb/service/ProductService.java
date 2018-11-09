@@ -32,7 +32,7 @@ public class ProductService {
     public Page<ProductDTO> getAllManagedProducts(Pageable pageable){       
         return productRepository.findAll(pageable).map(ProductDTO::new);
     }
-    public Optional<ProductDTO> getProduct(int id){
+    public Optional<ProductDTO> getProduct(Long id){
         return productRepository.findOneById(id).map(ProductDTO::new);
     }
     public Product createProduct(ProductDTO productDTO){

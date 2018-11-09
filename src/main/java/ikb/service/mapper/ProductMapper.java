@@ -46,8 +46,8 @@ public class ProductMapper {
             .collect(Collectors.toList());
     }
 
-    public Product productFromId(int id) {
-        if ((Integer)id == null) {
+    public Product productFromId(Long id) {
+        if (id == null) {
             return null;
         }
         Product product = new Product();
