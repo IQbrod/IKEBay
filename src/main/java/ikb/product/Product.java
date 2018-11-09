@@ -1,34 +1,16 @@
 package ikb.domain;
 
 import ikb.config.Constants;
-/*
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.apache.commons.lang3.StringUtils;
-import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import javax.validation.constraints.Email;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Objects;
-import java.util.Set;
-import java.time.Instant;
-*/
 
 /**
- * A product.
+ * A sellable product.
  */
 @Entity
 @Table(name = "Product")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Product implements Serializable {
 
+/* Attributes */
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -53,6 +35,8 @@ public class Product implements Serializable {
 
     @Column(name = "price", nullable = false)
     private float price;
+
+/* Methods */
 
     @Override
     public boolean equals(Object o) {
@@ -82,6 +66,7 @@ public class Product implements Serializable {
             "}";
     }
 
+/* Getter & Setter */
 
     public int getId() {
         return this.id;
