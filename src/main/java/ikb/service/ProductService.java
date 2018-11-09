@@ -10,7 +10,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.transaction.annotation.Transactional;
 
-import ikb.product.Product;
 import ikb.repository.ProductRepository;
 import ikb.service.dto.ProductDTO;
 
@@ -29,16 +28,11 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public void getAllProducts(){
-
+    public Page<ProductDTO> getAllManagedProducts(Pageable pageable){       
+        return productRepository.findAll(pageable).map(ProductDTO::new);
     }
-    public Page<ProductDTO> getAllManagedProducts(Pageable pageable){
-        return null;
-    }
-    public Optional<Product> getProduct(int id){
-
-        return productRepository.findOneById(id);
-
+    public Optional<ProductDTO> getProduct(int id){
+        return productRepository.findOneById(id).map(ProductDTO::new);
     }
     public Product createProduct(ProductDTO productDTO){
         Product product = new Product();
