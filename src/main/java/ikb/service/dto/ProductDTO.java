@@ -1,4 +1,8 @@
+package ikb.service.dto;
 
+import javax.validation.constraints.Size;
+
+import ikb.product.Product;
 
 public class ProductDTO {
     private int id;
@@ -17,11 +21,78 @@ public class ProductDTO {
 
     private float price;
 
+
     public ProductDTO(){
 
     }
 
-    public ProductDTO(Product Product){
-        this.id = product.
+    public ProductDTO(Product product){
+        this.id = product.getId();
+        this.name = product.getName();
+        this.description = product.getDescription();
+        this.photolink = product.getPhotolink();
+        this.price = product.getPrice();
     }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSpecification() {
+        return this.specification;
+    }
+
+    public void setSpecification(String specification) {
+        this.specification = specification;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhotolink() {
+        return this.photolink;
+    }
+
+    public void setPhotolink(String photolink) {
+        this.photolink = photolink;
+    }
+
+    public float getPrice() {
+        return this.price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public String tostring(){
+        return "ProductDTO{" +
+            "id='" + id + '\'' +
+            ", description'" + description + '\'' +
+            ", specification'" + specification + '\'' +
+            ", name='" + name + '\'' +
+            ", price='" + price + '\'' +
+            ", photolink=" + photolink +
+            "}";
+    }
+
+
+
 }
