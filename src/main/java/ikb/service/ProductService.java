@@ -28,13 +28,10 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public void getAllProducts(){
-    }
-
     public Page<ProductDTO> getAllManagedProducts(Pageable pageable){       
         return productRepository.findAll(pageable).map(ProductDTO::new);
     }
-    public Optional<ProductDTO> getProduct(Long id){
+    public Optional<ProductDTO> getProduct(int id){
         return productRepository.findOneById(id).map(ProductDTO::new);
     }
     public void createProduct(String name, String description, String specification, String photolink, float price){
