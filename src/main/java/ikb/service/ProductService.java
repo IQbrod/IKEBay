@@ -1,6 +1,8 @@
 package ikb.service;
 
 
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -8,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.transaction.annotation.Transactional;
 
+import ikb.repository.ProductRepository;
 import ikb.service.dto.ProductDTO;
 
 /**
@@ -17,16 +20,19 @@ import ikb.service.dto.ProductDTO;
 @Transactional
 public class ProductService {
 
+    private final ProductRepository productRepository;
+
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
     private final Logger log = LoggerFactory.getLogger(ProductService.class);
 
-    public void getAllProducts(){
-
+    public Page<ProductDTO> getAllManagedProducts(Pageable pageable){       
+        return productRepository.findAll(pageable).map(ProductDTO::new);
     }
-    public Page<ProductDTO> getAllManagedProducts(Pageable pageable){
-        return null;
-    }
-    public void getProduct(Long id){
-
+    public Optional<ProductDTO> getProduct(Long id){
+        return productRepository.findOneById(id).map(ProductDTO::new);
     }
     public void createProduct(String name, String description, String specification, String photolink, float price){
 
