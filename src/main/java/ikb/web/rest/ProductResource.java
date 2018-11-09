@@ -42,7 +42,7 @@ public class ProductResource {
     @GetMapping("/products")
     @Timed
     public ResponseEntity<List<ProductDTO>> getAllProducts(Pageable pageable) {
-        final Page<ProductDTO> page = productService.getAllManagedUProducts(pageable);
+        final Page<ProductDTO> page = productService.getAllManagedProducts(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/users");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

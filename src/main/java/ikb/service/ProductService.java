@@ -5,7 +5,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.transaction.annotation.Transactional;
+
+import ikb.service.dto.ProductDTO;
 
 /**
  * Service class for managing users.
@@ -19,8 +22,8 @@ public class ProductService {
     public void getAllProducts(){
 
     }
-    public void getAllManagedProducts(Pageable pageable){
-
+    public Page<ProductDTO> getAllManagedProducts(Pageable pageable){
+        return null;
     }
     public void getProduct(Long id){
 
