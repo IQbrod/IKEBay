@@ -44,6 +44,7 @@ public class ProductService {
         product.setPrice(productDTO.getPrice());
         product.setSpecification(productDTO.getSpecification());
         productRepository.save(product);
+        log.debug("Created Information for Product: {}", product);
         return product;
     }
 
