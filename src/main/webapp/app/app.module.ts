@@ -22,7 +22,6 @@ import * as moment from 'moment';
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
 import { DetailedviewComponent } from './product/views/detailedview/detailedview.component';
 import { ProductService } from './product/product.service';
-import { PanierComponent } from './panier/panier.component';
 
 @NgModule({
     imports: [
@@ -36,15 +35,7 @@ import { PanierComponent } from './panier/panier.component';
         IkeBayEntityModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
-    declarations: [
-        JhiMainComponent,
-        NavbarComponent,
-        ErrorComponent,
-        PageRibbonComponent,
-        FooterComponent,
-        DetailedviewComponent,
-        PanierComponent
-    ],
+    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, DetailedviewComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
