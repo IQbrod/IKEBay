@@ -3,11 +3,11 @@ import { RouterModule } from '@angular/router';
 
 import { IkeBaySharedModule } from 'app/shared';
 import { HOME_ROUTE, HomeComponent } from './';
-import { PanierComponent } from 'app/panier/panier.component';
+import { PanierModule } from 'app/panier/panier.module';
 
 @NgModule({
-    imports: [IkeBaySharedModule, RouterModule.forChild([HOME_ROUTE])],
-    declarations: [HomeComponent, PanierComponent],
+    imports: [IkeBaySharedModule, RouterModule.forChild([HOME_ROUTE]), PanierModule],
+    declarations: [HomeComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class IkeBayHomeModule {}
