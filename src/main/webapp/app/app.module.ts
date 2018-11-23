@@ -22,6 +22,8 @@ import * as moment from 'moment';
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
 import { SimpleviewComponent } from './product/views/simpleview/simpleview.component';
 import { DetailedviewComponent } from './product/views/detailedview/detailedview.component';
+import { ProductService } from './product/product.service';
+import { PanierComponent } from './panier/panier.component';
 
 @NgModule({
     imports: [
@@ -42,7 +44,8 @@ import { DetailedviewComponent } from './product/views/detailedview/detailedview
         PageRibbonComponent,
         FooterComponent,
         SimpleviewComponent,
-        DetailedviewComponent
+        DetailedviewComponent,
+        PanierComponent
     ],
     providers: [
         {
@@ -68,7 +71,8 @@ import { DetailedviewComponent } from './product/views/detailedview/detailedview
             useClass: NotificationInterceptor,
             multi: true,
             deps: [Injector]
-        }
+        },
+        ProductService
     ],
     bootstrap: [JhiMainComponent]
 })
