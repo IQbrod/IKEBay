@@ -1,1 +1,3 @@
-export class Panier {}
+export class Panier {
+    [key: number]: number;
+}
