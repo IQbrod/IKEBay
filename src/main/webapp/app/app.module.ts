@@ -20,7 +20,6 @@ import { IkeBayEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
-import { SimpleviewComponent } from './product/views/simpleview/simpleview.component';
 import { DetailedviewComponent } from './product/views/detailedview/detailedview.component';
 import { ProductService } from './product/product.service';
 import { PanierComponent } from './panier/panier.component';
@@ -43,7 +42,6 @@ import { PanierComponent } from './panier/panier.component';
         ErrorComponent,
         PageRibbonComponent,
         FooterComponent,
-        SimpleviewComponent,
         DetailedviewComponent,
         PanierComponent
     ],
