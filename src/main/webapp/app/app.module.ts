@@ -23,6 +23,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
 import { SimpleviewComponent } from './product/views/simpleview/simpleview.component';
 import { DetailedviewComponent } from './product/views/detailedview/detailedview.component';
 import { ProductService } from './product/product.service';
+import { PanierService } from './panier/service/panier.service';
 
 @NgModule({
     imports: [
@@ -70,6 +71,7 @@ import { ProductService } from './product/product.service';
             multi: true,
             deps: [Injector]
         },
+        PanierService,
         ProductService
     ],
     bootstrap: [JhiMainComponent]
