@@ -11,5 +11,4 @@ export class SimpleviewComponent implements OnInit {
 
     constructor() {}
     ngOnInit() {}
-    btnClick = function() {};
 }
