@@ -20,7 +20,8 @@ import { IkeBayEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
-import { SimpleviewComponent } from './product/simpleview/simpleview.component';
+import { SimpleviewComponent } from './product/views/simpleview/simpleview.component';
+import { DetailedviewComponent } from './product/views/detailedview/detailedview.component';
 
 @NgModule({
     imports: [
@@ -34,7 +35,15 @@ import { SimpleviewComponent } from './product/simpleview/simpleview.component';
         IkeBayEntityModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, SimpleviewComponent],
+    declarations: [
+        JhiMainComponent,
+        NavbarComponent,
+        ErrorComponent,
+        PageRibbonComponent,
+        FooterComponent,
+        SimpleviewComponent,
+        DetailedviewComponent
+    ],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
