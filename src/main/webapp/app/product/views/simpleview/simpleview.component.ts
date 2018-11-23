@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Product } from 'app/product/product.model';
 
 @Component({
     selector: 'jhi-simpleview',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
     styles: []
 })
 export class SimpleviewComponent implements OnInit {
-    constructor() {}
+    @Input() product: Product;
 
+    constructor() {}
     ngOnInit() {}
+    btnClick = function() {};
 }
