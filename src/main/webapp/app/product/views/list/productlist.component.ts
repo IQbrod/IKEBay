@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'app/product/product.model';
+import { ProductService } from 'app/product/product.service';
 
 @Component({
     selector: 'jhi-productlist',
@@ -8,11 +9,14 @@ import { Product } from 'app/product/product.model';
 })
 export class ProductlistComponent implements OnInit {
     products: Product[] = [
-        { id: 1, name: 'canape rouge', photolink: 'https://www.ikea.com/PIAimages/0504261_PE633252_S3.JPG', price: 15 },
+        /* { id: 1, name: 'canape rouge', photolink: 'https://www.ikea.com/PIAimages/0504261_PE633252_S3.JPG', price: 15 },
         { id: 2, name: 'canape bleu', photolink: 'https://www.ikea.com/PIAimages/0504261_PE633252_S3.JPG', price: 15 },
-        { id: 3, name: 'canape vert', photolink: 'https://www.ikea.com/PIAimages/0504261_PE633252_S3.JPG', price: 15 }
+        { id: 3, name: 'canape vert', photolink: 'https://www.ikea.com/PIAimages/0504261_PE633252_S3.JPG', price: 15 } */
     ];
 
-    constructor() {}
-    ngOnInit() {}
+    constructor(private productService: ProductService) {}
+
+    ngOnInit() {
+        this.productService.listAll().subscribe((prods: Product[]) => (this.products = prods));
+    }
 }

@@ -1,2 +1,6 @@
 id;name;price;description;specification;photolink
-1;Canape;200.97;Un canapé rouge;180x90x80;un lien
+1;Canape Bleusaille;200.97;Un canapé bleu 1;180x90x80;https://www.ikea.com/PIAimages/0504261_PE633252_S3.JPG
+2;Canape Bleusaille;200.98;Un canapé bleu 2;180x90x80;https://www.ikea.com/PIAimages/0504261_PE633252_S3.JPG
+3;Canape Bleusaille;200.99;Un canapé bleu 3;180x90x80;https://www.ikea.com/PIAimages/0504261_PE633252_S3.JPG
+4;Canape Bleusaille;200.96;Un canapé bleu 4;180x90x80;https://www.ikea.com/PIAimages/0504261_PE633252_S3.JPG
+5;Canape Bleusaille;200.95;Un canapé bleu 5;180x90x80;https://www.ikea.com/PIAimages/0504261_PE633252_S3.JPG

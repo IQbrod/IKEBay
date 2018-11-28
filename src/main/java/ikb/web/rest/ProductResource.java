@@ -51,7 +51,7 @@ public class ProductResource {
     @Timed
     public ResponseEntity<List<ProductDTO>> getAllProducts(Pageable pageable) {
         final Page<ProductDTO> page = productService.getAllManagedProducts(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/users");
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/products");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
