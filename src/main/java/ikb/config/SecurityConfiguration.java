@@ -80,7 +80,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/content/**")
             .antMatchers("/h2-console/**")
             .antMatchers("/swagger-ui/index.html")
-            .antMatchers("/test/**");
+            .antMatchers("/test/**")
+            //modif yann : empecher spring security de filtrer  => autoriser pour tous
+            .antMatchers("/api/products")
+            .antMatchers("/api/products/**");
     }
 
     @Override
@@ -110,10 +113,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/management/health").permitAll()
             .antMatchers("/management/info").permitAll()
             .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
-            .antMatchers("/api/products").permitAll()
-            .antMatchers("/api/products/**").permitAll()
-            .antMatchers("/products").permitAll()
-            .antMatchers("/products/**").permitAll()
         .and()
             .apply(securityConfigurerAdapter());
 
