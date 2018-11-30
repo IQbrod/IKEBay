@@ -13,9 +13,10 @@ export class DetailComponent implements OnInit {
     constructor(private panServ: PanierService) {}
 
     ngOnInit() {
-        this.panServ.qtePublisher.subscribe(message => (this.qte = message));
         this.panier = this.panServ.getPanier();
-        this.contenu = 'Panier Vide';
+        this.panServ.qtePublisher.subscribe((message: Number) => {
+            this.refresh();
+        });
     }
 
     refresh() {
