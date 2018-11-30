@@ -7,13 +7,10 @@ import { PanierService } from 'app/panier/service/panier.service';
     styles: []
 })
 export class QuickAddComponent implements OnInit {
-    @Input() private qte: number;
     @Input() private id: number;
     constructor(private panServ: PanierService) {}
 
-    ngOnInit() {
-        this.panServ.qtePublisher.subscribe(message => (this.qte = message));
-    }
+    ngOnInit() {}
 
     onClick() {
         this.panServ.addItem(this.id, 1);

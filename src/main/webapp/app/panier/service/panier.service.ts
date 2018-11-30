@@ -38,6 +38,10 @@ export class PanierService {
         }
     }
 
+    getPanier() {
+        return this.panier;
+    }
+
     private publishQte(message: number) {
         this.qteSource.next(message);
     }
