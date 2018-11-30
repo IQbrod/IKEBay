@@ -1,3 +1,4 @@
+import { PanierModule } from './../panier/panier.module';
 import { DetailedviewComponent } from './views/detailedview/detailedview.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { ProductRoute } from './product.route';
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forRoot(ProductRoute)],
+    imports: [CommonModule, RouterModule.forRoot(ProductRoute), PanierModule],
     declarations: [SimpleviewComponent, DetailedviewComponent, ProductlistComponent],
     exports: [SimpleviewComponent, DetailedviewComponent, ProductlistComponent]
 })
