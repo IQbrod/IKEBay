@@ -20,7 +20,6 @@ import { IkeBayEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
-import { SimpleviewComponent } from './product/views/simpleview/simpleview.component';
 import { DetailedviewComponent } from './product/views/detailedview/detailedview.component';
 import { ProductService } from './product/product.service';
 import { PanierService } from './panier/service/panier.service';
@@ -37,15 +36,7 @@ import { PanierService } from './panier/service/panier.service';
         IkeBayEntityModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
-    declarations: [
-        JhiMainComponent,
-        NavbarComponent,
-        ErrorComponent,
-        PageRibbonComponent,
-        FooterComponent,
-        SimpleviewComponent,
-        DetailedviewComponent
-    ],
+    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, DetailedviewComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

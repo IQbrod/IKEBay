@@ -109,7 +109,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/**").authenticated()
             .antMatchers("/management/health").permitAll()
             .antMatchers("/management/info").permitAll()
-            .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)            
+            // Yann added : allow anynomous access to the product list and individual
+            // products
+            .antMatchers("/api/products").permitAll()
+            .antMatchers("/api/products/**").permitAll()
+            //
         .and()
             .apply(securityConfigurerAdapter());
 

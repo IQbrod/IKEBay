@@ -9,12 +9,12 @@
 
     <property name="autoIncrement" value="true"/>
 
-    <changeSet id="000013" author="IQbrod">
+    <changeSet id="000015" author="IQbrod">
         <preConditions onFail="MARK_RAN"><tableExists tableName="product"/></preConditions>
         <dropTable tableName="product"/>
     </changeSet>
 
-    <changeSet id="000014" author="IQbrod">
+    <changeSet id="000016" author="IQbrod">
         <createTable tableName="product">
 
                 <column name="id" type="int" autoIncrement="${autoIncrement}">
