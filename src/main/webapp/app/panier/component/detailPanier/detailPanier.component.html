@@ -1,2 +1,3 @@
-<button (click)="refresh()">Detail</button>
-<p>{{contenu}}</p>
+<ul>
+    <jhi-cartview *ngFor="let entry of panier | keyvalue" [productId]=entry.key [quantity]=entry.value></jhi-cartview>
+</ul>

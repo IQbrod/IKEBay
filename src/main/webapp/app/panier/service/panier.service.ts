@@ -15,7 +15,7 @@ export class PanierService {
         this.qtePublisher = this.qteSource.asObservable();
     }
 
-    addItem(id, qte) {
+    addItem(id: number, qte: number) {
         if (this.panier.has(id)) {
             // Ajout dans map
             this.panier.set(id, this.panier.get(id) + qte);
@@ -25,7 +25,7 @@ export class PanierService {
         }
 
         // Verification valeur != 0
-        if (this.panier.get(id) == 0) {
+        if (this.panier.get(id) === 0) {
             this.panier.delete(id);
         }
 
@@ -33,7 +33,7 @@ export class PanierService {
         this.publishQte(this.totQte);
     }
 
-    removeItem(id, qte) {
+    removeItem(id: number, qte: number) {
         if (this.panier.has(id)) {
             if (this.panier.get(id) < qte) {
                 qte = this.panier.get(id);

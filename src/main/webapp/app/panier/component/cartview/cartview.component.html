@@ -1,0 +1,4 @@
+<li *ngIf="product">
+    <img alt="Product image" height="50" width="50" src="{{product.photolink}}">
+    <p> {{product.name}} => <button (click)="Sub()">-</button>{{quantity}}<button (click)="Add()">+</button></p>
+</li>
