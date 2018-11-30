@@ -16,9 +16,36 @@ export class PanierService {
     }
 
     addItem(id, qte) {
-        this.panier[id] += qte;
+        if (this.panier.has(id)) {
+            // Ajout dans map
+            this.panier.set(id, this.panier.get(id) + qte);
+        } else {
+            // Creation clé dans map
+            this.panier.set(id, qte);
+        }
+
+        // Verification valeur != 0
+        if (this.panier.get(id) == 0) {
+            this.panier.delete(id);
+        }
+
         this.totQte += qte;
         this.publishQte(this.totQte);
+    }
+
+    removeItem(id, qte) {
+        if (this.panier.has(id)) {
+            if (this.panier.get(id) < qte) {
+                qte = this.panier.get(id);
+            }
+            this.addItem(id, -qte);
+        } else {
+            return;
+        }
+    }
+
+    getPanier() {
+        return this.panier;
     }
 
     private publishQte(message: number) {

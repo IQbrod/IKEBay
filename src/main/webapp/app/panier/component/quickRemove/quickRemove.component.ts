@@ -2,17 +2,17 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PanierService } from 'app/panier/service/panier.service';
 
 @Component({
-    selector: 'jhi-quick-add',
-    templateUrl: './quickAdd.component.html',
+    selector: 'jhi-quick-rem',
+    templateUrl: './quickRemove.component.html',
     styles: []
 })
-export class QuickAddComponent implements OnInit {
+export class QuickRemoveComponent implements OnInit {
     @Input() private id: number;
     constructor(private panServ: PanierService) {}
 
     ngOnInit() {}
 
     onClick() {
-        this.panServ.addItem(this.id, 1);
+        this.panServ.removeItem(this.id, 1);
     }
 }
