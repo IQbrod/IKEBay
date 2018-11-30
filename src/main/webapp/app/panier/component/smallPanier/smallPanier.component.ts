@@ -4,7 +4,7 @@ import { PanierService } from 'app/panier/service/panier.service';
 @Component({
     selector: 'jhi-panier',
     templateUrl: './smallPanier.component.html',
-    styles: []
+    styleUrls: ['smallPanier.css']
 })
 export class PanierComponent implements OnInit {
     @Input() private totQte: number;

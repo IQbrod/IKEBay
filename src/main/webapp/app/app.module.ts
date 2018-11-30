@@ -23,6 +23,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
 import { DetailedviewComponent } from './product/views/detailedview/detailedview.component';
 import { ProductService } from './product/product.service';
 import { PanierService } from './panier/service/panier.service';
+import { PanierModule } from 'app/panier/panier.module';
 
 @NgModule({
     imports: [
@@ -33,7 +34,8 @@ import { PanierService } from './panier/service/panier.service';
         IkeBayCoreModule,
         IkeBayHomeModule,
         IkeBayAccountModule,
-        IkeBayEntityModule
+        IkeBayEntityModule,
+        PanierModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, DetailedviewComponent],
