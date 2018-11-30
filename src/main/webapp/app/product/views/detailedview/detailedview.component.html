@@ -1,3 +1,7 @@
-<p>
-  detailedview works!
-</p>
+<div *ngIf="product">
+    <img alt="Product image" height="800" width="800" src="{{product.photolink}}">
+    <p> {{product.name}}</p>
+    <p> {{product.price}}€</p>
+    <p> {{product.description}} €</p>
+    <p> {{product.specifications}} €</p>
+</div>

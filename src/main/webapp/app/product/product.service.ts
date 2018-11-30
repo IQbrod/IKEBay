@@ -14,19 +14,15 @@ export class ProductService {
 
     constructor(private http: HttpClient) {}
 
-    create(product: IProduct): Observable<HttpResponse<IProduct>> {
+    create(product: IProduct): Observable<HttpResponse<Product>> {
         return this.http.post<IProduct>(this.resourceUrl, product, { observe: 'response' });
     }
 
-    update(product: IProduct): Observable<HttpResponse<IProduct>> {
+    update(product: IProduct): Observable<HttpResponse<Product>> {
         return this.http.put<IProduct>(this.resourceUrl, product, { observe: 'response' });
     }
 
-    find(Id: string): Observable<HttpResponse<IProduct>> {
-        return this.http.get<IProduct>(`${this.resourceUrl}/${Id}`, { observe: 'response' });
-    }
-
-    query(req?: any): Observable<HttpResponse<IProduct[]>> {
+    query(req?: any): Observable<HttpResponse<Product[]>> {
         const options = createRequestOption(req);
         return this.http.get<IProduct[]>(this.resourceUrl, { params: options, observe: 'response' });
     }
@@ -35,19 +31,10 @@ export class ProductService {
         return this.http.delete(`${this.resourceUrl}/${Id}`, { observe: 'response' });
     }
 
-    /* listAll(): Observable<HttpResponse<IProduct[]>> {
-        return this.http.get<IProduct[]>(this.resourceUrl, {observe: 'response' });
-    } */
+    getProduct(Id: number): Observable<Product> {
+        return this.http.get<Product>(`${this.resourceUrl}/${Id}`, { observe: 'response' }).pipe(map(res => res.body));
+    }
     listAll(): Observable<Product[]> {
-        return this.http.get<Product[]>(this.resourceUrl, { observe: 'response' }).pipe(
-            map(res => res.body)
-
-            /* map((response: HttpResponse<Product[]>) => {
-                const result = response.body.map((product: Product) =>
-                    Object.assign(new Product(), product));
-                // console.log(result);
-                return result;
-            }) */
-        );
+        return this.http.get<Product[]>(this.resourceUrl, { observe: 'response' }).pipe(map(res => res.body));
     }
 }
