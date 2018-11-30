@@ -38,7 +38,7 @@ import { PanierModule } from 'app/panier/panier.module';
         PanierModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, DetailedviewComponent],
+    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

@@ -1,5 +1,6 @@
 <div *ngIf="product">
-    <img alt="Product image" height="200" width="200" src="{{product.photolink}}">
+<img routerLink="/products/{{product.id}}" alt="Product image" height="200" width="200" src="{{product.photolink}}">
     <p> {{product.name}}</p>
     <p> {{product.price}} €</p>
+    <jhi-quick-add [id]=product.id></jhi-quick-add>
 </div>
