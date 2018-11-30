@@ -23,6 +23,12 @@ export class PanierService {
             // Creation clé dans map
             this.panier.set(id, qte);
         }
+
+        // Verification valeur != 0
+        if (this.panier.get(id) == 0) {
+            this.panier.delete(id);
+        }
+
         this.totQte += qte;
         this.publishQte(this.totQte);
     }
