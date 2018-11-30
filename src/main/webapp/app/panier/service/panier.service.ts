@@ -16,9 +16,26 @@ export class PanierService {
     }
 
     addItem(id, qte) {
-        this.panier[id] += qte;
+        if (this.panier.has(id)) {
+            // Ajout dans map
+            this.panier.set(id, this.panier.get(id) + qte);
+        } else {
+            // Creation clé dans map
+            this.panier.set(id, qte);
+        }
         this.totQte += qte;
         this.publishQte(this.totQte);
+    }
+
+    removeItem(id, qte) {
+        if (this.panier.has(id)) {
+            if (this.panier.get(id) < qte) {
+                qte = this.panier.get(id);
+            }
+            this.addItem(id, -qte);
+        } else {
+            return;
+        }
     }
 
     private publishQte(message: number) {
