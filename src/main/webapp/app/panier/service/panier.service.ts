@@ -1,5 +1,7 @@
+import { ProductService } from './../../product/product.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { PanierEntry } from '../model/panierentry.model';
 
 @Injectable()
 export class PanierService {
@@ -8,7 +10,7 @@ export class PanierService {
     private qteSource;
     public qtePublisher;
 
-    constructor() {
+    constructor(private productService: ProductService) {
         this.panier = new Map();
         this.totQte = 0;
         this.qteSource = new BehaviorSubject<number>(this.totQte);
@@ -18,14 +20,17 @@ export class PanierService {
     addItem(id: number, qte: number) {
         if (this.panier.has(id)) {
             // Ajout dans map
-            this.panier.set(id, this.panier.get(id) + qte);
+            const entry = this.panier.get(id);
+            entry.quantity = entry.quantity + qte;
+            this.panier.set(id, entry);
         } else {
             // Creation clé dans map
-            this.panier.set(id, qte);
+            const entry = new PanierEntry(this.productService, id, null, qte);
+            this.panier.set(id, entry);
         }
 
         // Verification valeur != 0
-        if (this.panier.get(id) === 0) {
+        if (this.panier.get(id).quantity === 0) {
             this.panier.delete(id);
         }
 
@@ -35,8 +40,8 @@ export class PanierService {
 
     removeItem(id: number, qte: number) {
         if (this.panier.has(id)) {
-            if (this.panier.get(id) < qte) {
-                qte = this.panier.get(id);
+            if (this.panier.get(id).quantity < qte) {
+                qte = this.panier.get(id).quantity;
             }
             this.addItem(id, -qte);
         } else {
@@ -46,6 +51,12 @@ export class PanierService {
 
     getPanier() {
         return this.panier;
+    }
+
+    ViderPanier() {
+        this.panier.clear();
+        this.totQte = 0;
+        this.publishQte(this.totQte);
     }
 
     private publishQte(message: number) {

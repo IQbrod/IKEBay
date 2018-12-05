@@ -11,12 +11,12 @@ import { PanierService } from 'app/panier/service/panier.service';
 export class CartviewComponent implements OnInit {
     @Input() productId: number;
     @Input() quantity: number;
-    product: Product;
+    @Input() product: Product;
 
     constructor(private productService: ProductService, private panServ: PanierService) {}
 
     ngOnInit() {
-        this.productService.getProduct(this.productId).subscribe((prods: Product) => (this.product = prods));
+        // this.productService.getProduct(this.productId).subscribe((prods: Product) => (this.product = prods));
     }
 
     Sub() {
