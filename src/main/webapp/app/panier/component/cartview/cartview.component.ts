@@ -26,4 +26,8 @@ export class CartviewComponent implements OnInit {
     Add() {
         this.panServ.addItem(this.productId, 1);
     }
+
+    ComputeSousTotal() {
+        return Math.round(100 * (this.product.price * this.quantity)) / 100;
+    }
 }

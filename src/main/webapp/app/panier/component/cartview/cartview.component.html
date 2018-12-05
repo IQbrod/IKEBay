@@ -2,5 +2,5 @@
     <img alt="Product image" height="50" width="50" src="{{product.photolink}}">
 <p> {{product.name}} => <button (click)="Sub()">-</button>{{quantity}}<button (click)="Add()">+</button></p>
 <P>Prix unitaire : {{product.price}} €</P>
-<P>Sous total : {{product.price * quantity}} €</P>
+<P>Sous total : {{ComputeSousTotal()}} €</P>
 </li>

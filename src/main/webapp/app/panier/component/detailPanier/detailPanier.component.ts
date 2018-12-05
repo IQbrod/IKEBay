@@ -26,8 +26,7 @@ export class DetailPanierComponent implements OnInit {
         this.panier.forEach((value: PanierEntry, key: Number) => {
             total = total + value.product.price * value.quantity;
         });
+        total = Math.round(100 * total) / 100;
         return total;
     }
-
-    computeTotalQuantity() {}
 }
