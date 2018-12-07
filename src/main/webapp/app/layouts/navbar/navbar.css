@@ -71,7 +71,7 @@ Navbar
 Logo styles
 ========================================================================== */
 .navbar-brand.logo {
-    padding: 5px 15px;
+    padding-left: 15px;
 }
 
 .logo-img {
