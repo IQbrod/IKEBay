@@ -1,0 +1,47 @@
+#pname {
+    font: inherit;
+    font-weight: 700;
+    font-size: 2em;
+    margin-bottom: 3%;
+}
+
+#prix {
+    font: inherit;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+img {
+    height: 350px;
+    width: 350px;
+}
+
+div {
+    text-align: center;
+}
+
+div > div {
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    vertical-align: top;
+    background-color: #ebf4ff;
+    border-radius: 30px;
+    width: 20%;
+}
+
+jhi-quick-add {
+    margin-top: 3%;
+    display: block;
+}
+
+ul {
+    list-style-type: None;
+    margin-bottom: 10px;
+}
+
+ul li {
+    float: left;
+    padding: 2px;
+    margin-right: 20px;
+}
