@@ -1,5 +1,18 @@
 div {
-    margin-left: 4%;
-    margin-right: 4%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    border-radius: 30px;
+    margin: 3px;
+
     display: inline-block;
+
+    border: white solid 1px;
+    background-color: #ebf4ff;
+}
+
+div:hover {
+    background-color: #b0d5ff;
+    border: #0079ed solid 1px;
 }

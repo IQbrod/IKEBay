@@ -92,3 +92,8 @@ jhi-panier {
     width: 100px;
     height: auto;
 }
+
+#searchBar {
+    margin-left: 650px;
+    margin-right: 650px;
+}
