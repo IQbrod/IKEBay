@@ -1,11 +1,11 @@
 id;name;price;description;specification;photolink
-1;Canape Bleusaille;200;Un canapé bleu;180x90x80;ile.png
-2;Canape Rougeâtre;150;Un canapé rouge;180x90x80;montagne.png
-3;Canape Verdoyant;800;Un canapé vert;180x90x80;foret.png
-4;Canape Noireau;50.96;Un canapé jaune;180x90x80;marais.png
-5;Canape Blanchouille;667;Un canapé blanc;180x90x80;plaine.png
-6;Une Carte;321;C'est une carte;180x90x80;magic.png
-7;Une Autre Carte;1;C'est aussi une carte;180x90x80;magic.png
-8;Une Vraie Carte;127;C'est encore une carte;180x90x80;magic.png
-9;Une Carte ?;28.7;C'est là aussi une carte;180x90x80;magic.png
-10;Encore une :/;5.36;C'est vraiment une carte;180x90x80;magic.png
+1;Canape Bleusaille;200;Un canapé bleu;test;ile.png
+2;Canape Rougeâtre;150;Un canapé rouge;truc;montagne.png
+3;Canape Verdoyant;800;Un canapé vert;astuce;foret.png
+4;Canape Noireau;50.96;Un canapé jaune;indice;marais.png
+5;Canape Blanchouille;667;Un canapé blanc;enigme;plaine.png
+6;Une Carte;321;C'est une carte;pourquoi;magic.png
+7;Une Autre Carte;1;C'est aussi une carte;ça;magic.png
+8;Une Vraie Carte;127;C'est encore une carte;marche;magic.png
+9;Une Carte ?;28.7;C'est là aussi une carte;pas;magic.png
+10;Encore une :/;5.36;C'est vraiment une carte;???!;magic.png

@@ -30,6 +30,7 @@ public class ProductDTO {
         this.id = product.getId();
         this.name = product.getName();
         this.description = product.getDescription();
+        this.specification = product.getSpecification();
         this.photolink = product.getPhotolink();
         this.price = product.getPrice();
     }
