@@ -6,7 +6,7 @@ import { ProductService } from 'app/product/product.service';
 @Component({
     selector: 'jhi-detailedview',
     templateUrl: './detailedview.component.html',
-    styles: []
+    styleUrls: ['detailview.css']
 })
 export class DetailedviewComponent implements OnInit {
     @Input() product: Product;
