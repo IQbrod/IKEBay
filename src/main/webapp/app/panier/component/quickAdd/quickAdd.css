@@ -1,0 +1,14 @@
+button {
+    border-radius: 10px;
+    padding: 3px, 10px, 5px, 10px;
+
+    font: inherit;
+    font-weight: 600;
+
+    background-color: #0079ed;
+    color: white;
+    opacity: 0.7;
+
+    border-color: #003399;
+    border-style: outset;
+}

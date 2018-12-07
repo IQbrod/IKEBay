@@ -4,7 +4,7 @@ import { Product } from 'app/product/product.model';
 @Component({
     selector: 'jhi-simpleview',
     templateUrl: './simpleview.component.html',
-    styles: []
+    styleUrls: ['simpleview.css']
 })
 export class SimpleviewComponent implements OnInit {
     @Input() product: Product;

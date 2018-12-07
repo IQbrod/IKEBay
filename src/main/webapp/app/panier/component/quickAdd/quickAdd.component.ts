@@ -4,10 +4,10 @@ import { PanierService } from 'app/panier/service/panier.service';
 @Component({
     selector: 'jhi-quick-add',
     templateUrl: './quickAdd.component.html',
-    styles: []
+    styleUrls: ['quickAdd.css']
 })
 export class QuickAddComponent implements OnInit {
-    @Input() private id: number;
+    @Input() public id: number;
     constructor(private panServ: PanierService) {}
 
     ngOnInit() {}

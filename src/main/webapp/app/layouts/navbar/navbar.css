@@ -7,7 +7,7 @@ Navbar
 }
 
 .jh-navbar {
-    background-color: #353d47;
+    background-color: #0079ed;
     padding: 0.2em 1em;
 }
 
@@ -21,7 +21,7 @@ Navbar
 .jh-navbar .dropdown-item.active,
 .jh-navbar .dropdown-item.active:focus,
 .jh-navbar .dropdown-item.active:hover {
-    background-color: #353d47;
+    background-color: #0079ed;
 }
 
 .jh-navbar .dropdown-toggle::after {
@@ -71,7 +71,7 @@ Navbar
 Logo styles
 ========================================================================== */
 .navbar-brand.logo {
-    padding: 5px 15px;
+    padding-left: 15px;
 }
 
 .logo-img {
@@ -86,4 +86,14 @@ Logo styles
     display: inline-block;
     vertical-align: middle;
     width: 70px;
+}
+
+jhi-panier {
+    width: 100px;
+    height: auto;
+}
+
+#searchBar {
+    margin-left: 650px;
+    margin-right: 650px;
 }
