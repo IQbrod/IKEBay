@@ -20,10 +20,10 @@ import { IkeBayEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
-import { DetailedviewComponent } from './product/views/detailedview/detailedview.component';
 import { ProductService } from './product/product.service';
 import { PanierService } from './panier/service/panier.service';
 import { PanierModule } from 'app/panier/panier.module';
+import { PaiementModule } from './paiement/paiement.module';
 
 @NgModule({
     imports: [
