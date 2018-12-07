@@ -7,7 +7,7 @@ import { PanierService } from 'app/panier/service/panier.service';
     styleUrls: ['quickAdd.css']
 })
 export class QuickAddComponent implements OnInit {
-    @Input() private id: number;
+    @Input() public id: number;
     constructor(private panServ: PanierService) {}
 
     ngOnInit() {}

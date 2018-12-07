@@ -8,7 +8,7 @@ import { PanierService } from 'app/panier/service/panier.service';
     styles: []
 })
 export class DetailPanierComponent implements OnInit {
-    @Input() private panier: Map<Number, PanierEntry>;
+    @Input() public panier: Map<Number, PanierEntry>;
     totQte: number;
     constructor(private panServ: PanierService) {}
 

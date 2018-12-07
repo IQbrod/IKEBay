@@ -7,7 +7,7 @@ import { PanierService } from 'app/panier/service/panier.service';
     styles: []
 })
 export class QuickRemoveComponent implements OnInit {
-    @Input() private id: number;
+    @Input() public id: number;
     constructor(private panServ: PanierService) {}
 
     ngOnInit() {}
