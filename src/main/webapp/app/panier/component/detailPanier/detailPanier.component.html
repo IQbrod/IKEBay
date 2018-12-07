@@ -1,7 +1,7 @@
 <ul>
 <jhi-cartview *ngFor="let entry of panier | keyvalue" [product]=entry.value.product [productId]=entry.key [quantity]=entry.value.quantity></jhi-cartview>
 <button (click)="ViderPanier()">Vider le panier</button>
-<a routerLink="/paiement"><button routerLink="/paiement">Passer la commande</button></a>
+<a routerLink="/paiement"><button>Passer la commande</button></a>
 
 <p>Quantité Totale : {{totQte}}</p>
 <p>Prix Total : {{computeTotalPrice()}} €</p>
