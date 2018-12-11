@@ -50,7 +50,7 @@ public class StockResource {
     @GetMapping("/stocks")
     @Timed
     public ResponseEntity<List<StockDTO>> getAllStocks(Pageable pageable) {
-        final Page<StockDTO> page = stockService.getAllManagedProducts(pageable);
+        final Page<StockDTO> page = stockService.getAllManagedStocks(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/stocks");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

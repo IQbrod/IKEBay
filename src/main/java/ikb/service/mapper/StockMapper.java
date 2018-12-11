@@ -27,7 +27,7 @@ public class StockMapper {
         if(stockDTO == null){
             return null;
         }else{
-            Stock stock = new stock();
+            Stock stock = new Stock();
             stock.setId(stockDTO.getId());
             stock.setQuantité(stockDTO.getQuantité());
             stock.setRéServer(stockDTO.getRéServer());

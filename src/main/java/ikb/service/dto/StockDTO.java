@@ -1,7 +1,4 @@
 package ikb.service.dto;
-
-import javax.validation.constraints.Size;
-
 import ikb.stock.Stock;
 
 public class StockDTO {
@@ -18,7 +15,7 @@ public class StockDTO {
     }
 
     public StockDTO(Stock stock){
-        this.id = Stock.getId();
+        this.id = stock.getId();
         this.quantité = stock.getQuantité();
         this.réserver = stock.getRéServer();
     }
