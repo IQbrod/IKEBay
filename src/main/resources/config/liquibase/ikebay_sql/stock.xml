@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="autoIncrement" value="true"/>
+
+    <changeSet id="000000" author="Tuo018">
+        <preConditions onFail="MARK_RAN"><tableExists tableName="stock"/></preConditions>
+        <dropTable tableName="stock"/>
+    </changeSet>
+
+    <changeSet id="000001" author="Tuo018">
+        <createTable tableName="stock">
+
+                <column name="id" type="int" autoIncrement="${autoIncrement}">
+                    <constraints primaryKey="true" nullable="false"/>
+                </column>
+
+                <column name="quantité" type="int">
+                    <constraints nullable="false"/>
+                </column>
+
+                <column name="réserver" type="int">
+                    <constraints nullable="false"/>
+                </column>
+                
+            </createTable>
+
+            <loadData encoding="UTF-8"
+                  file="config/liquibase/ikebay_sql/stock.csv"
+                  separator=";"
+                  tableName="stock"/>
+    </changeSet>
+</databaseChangeLog>
