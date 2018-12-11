@@ -6,7 +6,7 @@ import { PanierService } from 'app/panier/service/panier.service';
 @Component({
     selector: 'jhi-cartview',
     templateUrl: './cartview.component.html',
-    styles: []
+    styleUrls: ['cartview.css']
 })
 export class CartviewComponent implements OnInit {
     @Input() productId: number;

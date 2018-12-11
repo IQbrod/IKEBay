@@ -5,7 +5,7 @@ import { PanierService } from 'app/panier/service/panier.service';
 @Component({
     selector: 'jhi-detail-panier',
     templateUrl: './detailPanier.component.html',
-    styles: []
+    styleUrls: ['detailPanier.css']
 })
 export class DetailPanierComponent implements OnInit {
     @Input() public panier: Map<Number, PanierEntry>;
