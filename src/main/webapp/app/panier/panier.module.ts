@@ -7,9 +7,10 @@ import { CommonModule } from '@angular/common';
 import { CartviewComponent } from 'app/panier/component/cartview/cartview.component';
 import { RouterModule } from '@angular/router';
 import { PanierRoute } from './panier.route';
+import { PaiementModule } from 'app/paiement/paiement.module';
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forRoot(PanierRoute)],
+    imports: [CommonModule, RouterModule.forRoot(PanierRoute), PaiementModule],
     declarations: [PanierComponent, QuickAddComponent, QuickRemoveComponent, DetailPanierComponent, CartviewComponent],
     exports: [PanierComponent, QuickAddComponent, QuickRemoveComponent, DetailPanierComponent, CartviewComponent]
 })

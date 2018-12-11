@@ -71,7 +71,7 @@ Navbar
 Logo styles
 ========================================================================== */
 .navbar-brand.logo {
-    padding: 5px 15px;
+    padding-left: 15px;
 }
 
 .logo-img {
@@ -89,6 +89,6 @@ Logo styles
 }
 
 jhi-panier {
-    width: 100px;
+    width: 110px;
     height: auto;
 }

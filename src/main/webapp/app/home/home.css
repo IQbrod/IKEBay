@@ -21,3 +21,10 @@ Main page styles
         background-size: contain;
     }
 }
+
+jhi-productlist {
+    display: block;
+    width: 75%;
+    margin-left: 25%; /* SIDDER CATEGORIES */
+    text-align: center;
+}

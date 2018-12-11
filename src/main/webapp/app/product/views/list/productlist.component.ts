@@ -5,7 +5,7 @@ import { ProductService } from 'app/product/product.service';
 @Component({
     selector: 'jhi-productlist',
     templateUrl: './productlist.component.html',
-    styles: []
+    styleUrls: ['productlist.css']
 })
 export class ProductlistComponent implements OnInit {
     products: Product[] = [
