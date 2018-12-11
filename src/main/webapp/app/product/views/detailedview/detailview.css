@@ -57,15 +57,23 @@ ul li {
     font: inherit;
     font-weight: 500;
     border: solid #ebf4ff 1px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 ul li.selected {
     background-color: #b0d5ff;
-    border-color: #b0d5ff;
+    border: solid #0079ed 1px;
+    border-bottom: 0px;
 }
 
 ul li:hover {
-    border-color: #0079ed;
+    border: solid #0079ed 1px;
+    background-color: #a6c3f5;
+}
+
+ul li:not(.selected) {
+    border-bottom: solid 1px #0079ed;
 }
 
 img {
@@ -74,7 +82,6 @@ img {
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 5px;
-    border: solid red 1px;
 }
 
 #ZoneTexte {
@@ -82,7 +89,13 @@ img {
     height: 90%;
     margin-left: 5%;
     margin-right: 5%;
-    border: solid red 1px;
+    padding: 2%;
+
+    background-color: #b0d5ff;
+    border: solid #0079ed 1px;
+    border-top: 0px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 @media screen and (max-width: 950px) {
