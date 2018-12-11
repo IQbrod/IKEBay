@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PaiementInfos, PaymentType } from 'app/paiement/paiementinfo.model';
+import { debug } from 'util';
 
 @Component({
     selector: 'jhi-infopaiement',
@@ -28,12 +29,17 @@ export class InfoPaiementComponent implements OnInit {
             parseInt(this.formdata.expiry.replace(/[/]+/g, ''), 10) / 100 < 13
         );
     }
+
+    validateCVC(): boolean {
+        return this.formdata.cvc.length === 3 && /^\d+$/.test(this.formdata.cvc);
+    }
     validateExpiryDate(): boolean {
         // todo : tester le mois et l'année (mois : nombre /1000 <13;année : nombre%100>=annéeactuelle%100)
         if (this.validateExpiry()) {
+            console.log(new Date().getMonth());
             return (
                 parseInt(this.formdata.expiry.replace(/[/]+/g, ''), 10) % 100 > new Date().getFullYear() % 100 ||
-                (parseInt(this.formdata.expiry.replace(/[/]+/g, ''), 10) / 100 >= new Date().getMonth() &&
+                (parseInt(this.formdata.expiry.replace(/[/]+/g, ''), 10) / 100 >= new Date().getMonth() + 1 &&
                     parseInt(this.formdata.expiry.replace(/[/]+/g, ''), 10) % 100 === new Date().getFullYear() % 100)
             );
         } else {

@@ -41,6 +41,10 @@
             <div [hidden]="cccvc.valid || cccvc.pristine" class="alert alert-danger">
                 Ce champ est requis.
             </div>
+            <div [hidden]="cccvc.pristine || validateCVC()" class="alert alert-danger">
+                Le CVC est invalide. Celui-ci doit être composé de 3 chiffres uniquement.
+            </div>
         </div>
-<button type="submit" class="btn btn-success" [disabled]="!paiementinfoForm.form.valid">Valider</button>
+        <button type="submit" class="btn btn-success" [disabled]="!paiementinfoForm.form.valid && (ccholdername.untouched || ccnum.untouched || ccexpiry.untouched || cccvc.untouched) && 
+        !(validateCVC() && validateExpiry() && validateExpiryDate() && validateCreditCardNumber() && ccholdername.valid)">Valider</button>
 </form>
