@@ -7,10 +7,10 @@
         </div>
         <div class="subdiv">
                 <ul>
-                    <li class="selected">Description</li>
-                    <li>Specification</li>
+                    <li #desc (click)="onClick('desc')" class="selected">Description</li>
+                    <li #spec (click)="onClick('spec')">Specification</li>
                 </ul>
-                <p id="ZoneTexte">A remplir</p>
+                <p id="ZoneTexte">{{content}}</p>
         </div>
     </div>
     <jhi-quick-add [id]=product.id></jhi-quick-add>
