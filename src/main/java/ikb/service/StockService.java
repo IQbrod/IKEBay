@@ -39,8 +39,9 @@ public class StockService {
     public Stock createStock(StockDTO stockDTO){
         Stock stock = new Stock();
         stock.setId(stockDTO.getId());
-        stock.setQuantité(stockDTO.getQuantité());
-        stock.setRéServer(stockDTO.getRéServer());
+        stock.setIdPro(stockDTO.getIdPro());
+        stock.setQuantite(stockDTO.getQuantite());
+        stock.setReServer(stockDTO.getReServer());
         stockRepository.save(stock);
         log.debug("Created Information for Stock: {}", stock);
         return stock;
