@@ -1,0 +1,36 @@
+li {
+    width: 98%;
+
+    display: inline-flex;
+    align-items: baseline;
+
+    border-radius: 20px;
+    background-color: #cbe5ff;
+    margin: 1%;
+}
+
+li * {
+    border: solid red 1px;
+    margin-left: 1%;
+}
+
+img {
+    align-self: center;
+}
+
+#name {
+    width: 30%;
+}
+
+#price {
+    width: 5%;
+}
+
+div {
+    width: 5%;
+    display: inline-flex;
+}
+
+#total {
+    width: 8%;
+}

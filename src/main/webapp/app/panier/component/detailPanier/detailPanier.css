@@ -1,0 +1,43 @@
+#sup {
+    display: inline-flex;
+    width: 100%;
+}
+
+ul {
+    background-color: #ebf4ff;
+    border-radius: 30px;
+
+    margin: 0;
+    padding: 1%;
+    flex: 10;
+    margin-right: 2.5%;
+}
+
+#sider {
+    flex: 1;
+    margin-left: 2.5%;
+    padding: 1%;
+
+    background-color: #ebf4ff;
+    border-radius: 30px;
+    text-align: center;
+}
+
+#sider p {
+    font-family: inherit;
+    font-size: medium;
+    font-weight: 500;
+}
+
+#sider button {
+    font-family: inherit;
+    font-weight: 500;
+    font-size: large;
+    background-color: #cbe5ff;
+    border-radius: 10px;
+    color: black;
+}
+
+#sider button a {
+    color: inherit;
+}

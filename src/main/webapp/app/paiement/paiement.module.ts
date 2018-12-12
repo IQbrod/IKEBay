@@ -4,10 +4,11 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaiementRoute } from './paiement.route';
+import { FinPaiementComponent } from './components/finpaiement/finpaiement.component';
 
 @NgModule({
     imports: [CommonModule, RouterModule.forRoot(PaiementRoute), FormsModule],
-    declarations: [InfoPaiementComponent],
-    exports: [InfoPaiementComponent]
+    declarations: [InfoPaiementComponent, FinPaiementComponent],
+    exports: [InfoPaiementComponent, FinPaiementComponent]
 })
 export class PaiementModule {}

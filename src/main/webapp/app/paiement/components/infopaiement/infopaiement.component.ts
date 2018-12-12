@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PaiementInfos, PaymentType } from 'app/paiement/paiementinfo.model';
+import { Router } from '@angular/router';
+import { PaiementService } from 'app/paiement/paiement.service';
 
 @Component({
     selector: 'jhi-infopaiement',
@@ -10,7 +12,7 @@ import { PaiementInfos, PaymentType } from 'app/paiement/paiementinfo.model';
 export class InfoPaiementComponent implements OnInit {
     formdata: PaiementInfos;
 
-    constructor() {}
+    constructor(private paiementserv: PaiementService, private router: Router) {}
 
     ngOnInit() {
         this.formdata = new PaiementInfos(PaymentType.creditcard, '', '', '', '');
@@ -28,12 +30,16 @@ export class InfoPaiementComponent implements OnInit {
             parseInt(this.formdata.expiry.replace(/[/]+/g, ''), 10) / 100 < 13
         );
     }
+
+    validateCVC(): boolean {
+        return this.formdata.cvc.length === 3 && /^\d+$/.test(this.formdata.cvc);
+    }
     validateExpiryDate(): boolean {
         // todo : tester le mois et l'année (mois : nombre /1000 <13;année : nombre%100>=annéeactuelle%100)
         if (this.validateExpiry()) {
             return (
                 parseInt(this.formdata.expiry.replace(/[/]+/g, ''), 10) % 100 > new Date().getFullYear() % 100 ||
-                (parseInt(this.formdata.expiry.replace(/[/]+/g, ''), 10) / 100 >= new Date().getMonth() &&
+                (parseInt(this.formdata.expiry.replace(/[/]+/g, ''), 10) / 100 >= new Date().getMonth() + 1 &&
                     parseInt(this.formdata.expiry.replace(/[/]+/g, ''), 10) % 100 === new Date().getFullYear() % 100)
             );
         } else {
@@ -42,7 +48,8 @@ export class InfoPaiementComponent implements OnInit {
     }
 
     saveinfo(form: NgForm) {
-        console.log(this.formdata);
+        this.paiementserv.formobject = this.formdata;
+        this.router.navigate(['/paiementvalide']);
         return;
     }
 }
