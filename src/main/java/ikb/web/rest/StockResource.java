@@ -61,12 +61,29 @@ public class StockResource {
      * @param id the id of the stock to find
      * @return the ResponseEntity with status 200 (OK) and with body the "id" stock, or with status 404 (Not Found)
      */
+    
     @GetMapping("/stocks/{id:" + Constants.ID_REGEX + "}")
     @Timed
-    public ResponseEntity<StockDTO> getStock(@PathVariable Long id) {
+    public ResponseEntity<StockDTO> getStockById(@PathVariable Long id) {
         log.debug("REST request to get Stock : {}", id);
         return ResponseUtil.wrapOrNotFound(stockService.getStock(id));
     }
+    
+
+     /**
+     * GET /stocks/:idPro : get the "idPro" stock.
+     *
+     * @param idPro the idPro of the stock to find
+     * @return the ResponseEntity with status 200 (OK) and with body the "idPro" stock, or with status 404 (Not Found)
+     */
+    /*
+    @GetMapping("/stocks/{idPro:" + Constants.ID_REGEX + "}")
+    @Timed
+    public ResponseEntity<StockDTO> getStockByIdPro(@PathVariable int idPro) {
+        log.debug("REST request to get Stock : {}", idPro);
+        return ResponseUtil.wrapOrNotFound(stockService.getStockByIdPro(idPro));
+    }
+    */
 
     /**
      * POST  /stocks  : Creates a new stock.

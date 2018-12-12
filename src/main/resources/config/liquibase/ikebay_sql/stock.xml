@@ -9,23 +9,23 @@
 
     <property name="autoIncrement" value="true"/>
 
-    <changeSet id="000000" author="Tuo018">
+    <changeSet id="000012" author="Tuo018">
         <preConditions onFail="MARK_RAN"><tableExists tableName="stock"/></preConditions>
         <dropTable tableName="stock"/>
     </changeSet>
 
-    <changeSet id="000001" author="Tuo018">
+    <changeSet id="000013" author="Tuo018">
         <createTable tableName="stock">
 
-                <column name="id" type="int" autoIncrement="${autoIncrement}">
+                <column name="id" type="int">
                     <constraints primaryKey="true" nullable="false"/>
                 </column>
 
-                <column name="quantité" type="int">
+                <column name="quantite" type="int">
                     <constraints nullable="false"/>
                 </column>
 
-                <column name="réserver" type="int">
+                <column name="reserver" type="int">
                     <constraints nullable="false"/>
                 </column>
                 

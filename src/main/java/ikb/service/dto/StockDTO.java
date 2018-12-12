@@ -4,9 +4,10 @@ import ikb.stock.Stock;
 public class StockDTO {
     private Long id;
 
-    private int quantité;
 
-    private int réserver;
+    private int quantite;
+
+    private int reserver;
 
 
 
@@ -16,8 +17,8 @@ public class StockDTO {
 
     public StockDTO(Stock stock){
         this.id = stock.getId();
-        this.quantité = stock.getQuantité();
-        this.réserver = stock.getRéServer();
+        this.quantite = stock.getQuantite();
+        this.reserver = stock.getReServer();
     }
 
     public Long getId() {
@@ -28,32 +29,33 @@ public class StockDTO {
         this.id = id;
     }
 
-    public int getQuantité()
+    public int getQuantite()
 	{
-		return this.quantité;
+		return this.quantite;
 	}
 
-	public void setQuantité(int quantité)
+	public void setQuantite(int quantit)
 	{
-		this.quantité = quantité ;
+		this.quantite = quantite ;
 	}
   
-    public int getRéServer()
+    public int getReServer()
 	{
-		return this.réserver;
+		return this.reserver;
 	}
 
-	public void setRéServer(int réserver)
+	public void setReServer(int reserver)
 	{
-		this.réserver = réserver;
+		this.reserver = reserver;
 	}
 
 
     public String tostring(){
         return "StockDTO{" +
             "id='" + id + '\'' +
-            ", quantité'" + quantité + '\'' +
-            ", réserver'" + réserver + '\'' +
+            "idPro='" + idPro + '\'' +
+            ", quantite'" + quantite + '\'' +
+            ", reserver'" + reserver + '\'' +
             "}";
     }
 

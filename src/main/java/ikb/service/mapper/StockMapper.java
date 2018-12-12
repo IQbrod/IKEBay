@@ -29,8 +29,8 @@ public class StockMapper {
         }else{
             Stock stock = new Stock();
             stock.setId(stockDTO.getId());
-            stock.setQuantité(stockDTO.getQuantité());
-            stock.setRéServer(stockDTO.getRéServer());
+            stock.setQuantite(stockDTO.getQuantite());
+            stock.setReServer(stockDTO.getReServer());
             return stock;
         }
     }

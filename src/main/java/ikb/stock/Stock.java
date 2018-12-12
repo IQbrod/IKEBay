@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.validator.constraints.UniqueElements;
 
 /**
  * A sellable stock.
@@ -19,14 +20,15 @@ public class Stock implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    /*@GeneratedValue(strategy = GenerationType.IDENTITY)*/
     private Long id;
 
-    @Column(name = "quantité", nullable = false)
-    private int quantité;
 
-    @Column(name = "réserver", nullable = false)
-    private int réserver;
+    @Column(name = "quantite", nullable = false)
+    private int quantite;
+
+    @Column(name = "reserver", nullable = false)
+    private int reserver;
 
     /* Methods */
 
@@ -43,14 +45,14 @@ public class Stock implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, quantité, réserver);
+        return Objects.hash(id, quantite, reserver);
     }
 
     @Override
     public String toString() {
         return "{" + " id='" + getId() + 
-               "'" + ", quantité='" + getQuantité() + 
-               "'" + ", réserver='" + getRéServer() + "'" + 
+               "'" + ", quantite='" + getQuantite() + 
+               "'" + ", reserver='" + getReServer() + "'" + 
                "}";
     }
 
@@ -64,20 +66,20 @@ public class Stock implements Serializable {
         this.id = id;
     }
 
-    public int getQuantité() {
-        return this.quantité;
+    public int getQuantite() {
+        return this.quantite;
     }
 
-    public void setQuantité(int quantité) {
-        this.quantité = quantité;
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
     }
 
-    public int getRéServer() {
-        return this.réserver;
+    public int getReServer() {
+        return this.reserver;
     }
 
-    public void setRéServer(int réserver) {
-        this.réserver = réserver;
+    public void setReServer(int reserver) {
+        this.reserver = reserver;
     }
 
 }
