@@ -103,8 +103,7 @@
 
                 <div class="form-group">
                     <label class="form-control-label" for="isVendor">Tick if you want to be a vendor</label>
-<input type="checkbox" id="isVendor" name="isVendor" [(ngModel)]="registerAccount.isVendor"
-    required>
+                    <input type="checkbox" id="isVendor" name="isVendor" [(ngModel)]="registerAccount.isVendor" required>
                 </div>
 
                 <button type="submit" [disabled]="registerForm.form.invalid" class="btn btn-primary">Register</button>
