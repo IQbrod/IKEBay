@@ -6,11 +6,18 @@
         <div id="sider">
                 <p>{{totQte}} articles</p>
                 <p>Total: {{computeTotalPrice()}} €</p>
-                <button><a routerLink="/paiement">Commander</a></button>
+                <a routerLink="/paiement"><button>Commander</button></a>
         </div>
     </div>
 </div>
-<button (click)="ViderPanier()">Vider le panier</button>
-<a routerLink="/paiement"><button>Passer la commande</button></a>
-<p>Quantité Totale : {{totQte}}</p>
-<p>Prix Total : {{computeTotalPrice()}} €</p>
+<div id="botSup">
+    <div id="bot">
+        <div id="right">
+            <div id="qte">{{totQte}}</div>
+            <div id="tot">{{computeTotalPrice()}} €</div>
+        </div>
+    </div>
+    <div id="botSider">
+        <button (click)="ViderPanier()">Vider Panier</button>
+    </div>
+</div>
