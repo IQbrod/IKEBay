@@ -32,10 +32,10 @@ export class PanierService {
         // Verification valeur != 0
         if (this.panier.get(id).quantity === -1) {
             this.panier.delete(id);
+        } else {
+            this.totQte += qte;
+            this.publishQte(this.totQte);
         }
-
-        this.totQte += qte;
-        this.publishQte(this.totQte);
     }
 
     removeItem(id: number, qte: number) {
