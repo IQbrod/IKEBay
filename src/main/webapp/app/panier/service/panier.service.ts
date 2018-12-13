@@ -30,7 +30,7 @@ export class PanierService {
         }
 
         // Verification valeur != 0
-        if (this.panier.get(id).quantity === 0) {
+        if (this.panier.get(id).quantity === -1) {
             this.panier.delete(id);
         }
 
@@ -40,7 +40,7 @@ export class PanierService {
 
     removeItem(id: number, qte: number) {
         if (this.panier.has(id)) {
-            if (this.panier.get(id).quantity < qte) {
+            if (this.panier.get(id).quantity !== 0 && this.panier.get(id).quantity < qte) {
                 qte = this.panier.get(id).quantity;
             }
             this.addItem(id, -qte);
