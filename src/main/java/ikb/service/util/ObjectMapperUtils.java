@@ -4,6 +4,8 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 
 public class ObjectMapperUtils {
 
@@ -53,6 +55,21 @@ public class ObjectMapperUtils {
      */
     public static <D, T> List<D> mapAll(final Collection<T> entityList, Class<D> outCLass) {
         return entityList.stream().map(entity -> map(entity, outCLass)).collect(Collectors.toList());
+    }
+
+    /**
+     * <p>
+     * Note: outClass object must have default constructor with no arguments
+     * </p>
+     *
+     * @param entityList list of entities that needs to be mapped
+     * @param outCLass   class of result list element
+     * @param            <D> type of objects in result list
+     * @param            <T> type of entity in <code>entityList</code>
+     * @return list of mapped object with <code><D></code> type.
+     */
+    public static <D, T> Page<D> mapAlltoPage(final Collection<T> entityList, Class<D> outCLass) {
+        return new PageImpl<D>(entityList.stream().map(entity -> map(entity, outCLass)).collect(Collectors.toList()));
     }
 
     /**
