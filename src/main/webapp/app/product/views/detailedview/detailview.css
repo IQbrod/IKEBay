@@ -2,46 +2,142 @@
     font: inherit;
     font-weight: 700;
     font-size: 2em;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
 }
 
 #prix {
     font: inherit;
-    font-size: 1.5em;
+    font-size: large;
     font-weight: 500;
-}
-
-img {
-    height: 350px;
-    width: 350px;
 }
 
 div {
     text-align: center;
 }
 
-div > div {
-    display: inline-block;
+.supdiv {
+    display: inline-flex;
+    align-items: stretch;
+    width: 70%;
+}
+
+.subdiv {
+    flex: 1;
     margin-left: 5%;
     margin-right: 5%;
+
+    text-align: center;
     vertical-align: top;
     background-color: #ebf4ff;
     border-radius: 30px;
-    width: 20%;
 }
 
 jhi-quick-add {
-    margin-top: 3%;
+    margin-top: 2%;
     display: block;
 }
 
 ul {
+    width: 90%;
+    display: inline-flex;
+    align-items: stretch;
+    justify-content: center;
+
     list-style-type: None;
-    margin-bottom: 10px;
+    margin: 0;
+    padding: 0;
+
+    margin-top: 5px;
 }
 
 ul li {
-    float: left;
-    padding: 2px;
-    margin-right: 20px;
+    width: 50%;
+
+    font: inherit;
+    font-weight: 500;
+    border: solid #ebf4ff 1px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+ul li.selected {
+    background-color: #b0d5ff;
+    border: solid #0079ed 1px;
+    border-bottom: 0px;
+}
+
+ul li:hover {
+    border: solid #0079ed 1px;
+    background-color: #a6c3f5;
+}
+
+ul li:not(.selected) {
+    border-bottom: solid 1px #0079ed;
+}
+
+img {
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5px;
+}
+
+#ZoneTexte {
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 2%;
+
+    background-color: #b0d5ff;
+    border: solid #0079ed 1px;
+    border-top: 0px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+@media screen and (max-width: 950px) {
+    .supdiv {
+        width: 75%;
+    }
+
+    .subdiv {
+        margin-left: 4%;
+        margin-right: 4%;
+    }
+
+    ul li {
+        font-size: small;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .supdiv {
+        width: 80%;
+    }
+
+    .subdiv {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    ul li {
+        font-size: small;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .supdiv {
+        width: 100%;
+    }
+
+    .subdiv {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    ul li {
+        font-size: small;
+    }
 }

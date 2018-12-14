@@ -1,20 +1,50 @@
 <h2>Informations de paiement</h2>
-<form (ngSubmit)="Saveinfo(infoForm)" #infoForm="ngForm">
+<form (ngSubmit)="saveinfo()" #paiementinfoForm="ngForm">
     <div class="form-group">
         <label for="ccholdername">Nom</label>
-        <input type="ccholdername" class="form-control" id="ccholdername" name="ccholdername" ngModel>
-    </div>
-    <div class="form-group">
-        <label for="ccnum">Numéro de carte</label>
-        <input type="text" class="form-control" id="ccnum" name="ccnum" placeholder="XXXX XXXX XXXX XXXX" ngModel>
-    </div>
-    <div class="form-group">
-        <label for="ccexpiry">Date d'expiration</label>
-        <input type="ccexpiry" class="form-control" id="ccexpiry" name="ccexpiry" placeholder="XX/XX" ngModel>
-    </div>
-    <div class="form-group">
-        <label for="ccccv">CCV</label>
-        <input type="ccccv" class="form-control" id="ccccv" name="ccccv" placeholder="XXX" ngModel>
-    </div>
-    <button type="submit">Valider</button>
+        <input type="text" class="form-control" id="ccholdername" name="ccholdername" [(ngModel)]="formdata.name"
+            required #ccholdername="ngModel">
+        <div [hidden]="ccholdername.valid || ccholdername.pristine" class="alert alert-danger">
+            Ce champ est requis.
+        </div>
+        <div class="form-group">
+            <label for="ccnum">Numéro de carte</label>
+            <input type="text" class="form-control" id="ccnum" name="ccnum" placeholder="XXXX XXXX XXXX XXXX"
+                [(ngModel)]="formdata.cardnum" required #ccnum="ngModel">
+            <div [hidden]="ccnum.valid || ccnum.pristine" class="alert alert-danger">
+                Ce champ est requis.
+            </div>
+            <div [hidden]="ccnum.pristine || validateCreditCardNumber()" class="alert alert-danger">
+                Le numéro de carte est invalide. Celui-ci doit être composé de 16 chiffres, optionnellement séparé par
+                des espaces.
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="ccexpiry">Date d'expiration</label>
+            <input type="text" class="form-control" id="ccexpiry" name="ccexpiry" placeholder="XX/XX" [(ngModel)]="formdata.expiry"
+                required #ccexpiry="ngModel">
+            <div [hidden]="ccexpiry.valid || ccexpiry.pristine" class="alert alert-danger">
+                Ce champ est requis.
+            </div>
+            <div [hidden]="ccexpiry.pristine || validateExpiry()" class="alert alert-danger">
+                La date d'expiration est invalide.
+            </div>
+            <div [hidden]="ccexpiry.pristine || validateExpiryDate()" class="alert alert-danger">
+                Cette carte est expirée.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cccvc">CVC</label>
+            <input type="text" class="form-control" id="cccvc" name="cccvc" placeholder="XXX" [(ngModel)]="formdata.cvc"
+                required #cccvc="ngModel">
+            <div [hidden]="cccvc.valid || cccvc.pristine" class="alert alert-danger">
+                Ce champ est requis.
+            </div>
+            <div [hidden]="cccvc.pristine || validateCVC()" class="alert alert-danger">
+                Le CVC est invalide. Celui-ci doit être composé de 3 chiffres uniquement.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!paiementinfoForm.form.valid && (ccholdername.untouched || ccnum.untouched || ccexpiry.untouched || cccvc.untouched) && 
+        !(validateCVC() && validateExpiry() && validateExpiryDate() && validateCreditCardNumber() && ccholdername.valid)">Valider</button>
 </form>

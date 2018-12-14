@@ -23,7 +23,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
 import { ProductService } from './product/product.service';
 import { PanierService } from './panier/service/panier.service';
 import { PanierModule } from 'app/panier/panier.module';
-import { PaiementModule } from './paiement/paiement.module';
+import { PaiementService } from './paiement/paiement.service';
 
 @NgModule({
     imports: [
@@ -65,7 +65,8 @@ import { PaiementModule } from './paiement/paiement.module';
             deps: [Injector]
         },
         PanierService,
-        ProductService
+        ProductService,
+        PaiementService
     ],
     bootstrap: [JhiMainComponent]
 })

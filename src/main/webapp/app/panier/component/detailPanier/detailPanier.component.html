@@ -1,8 +1,23 @@
-<ul>
-<jhi-cartview *ngFor="let entry of panier | keyvalue" [product]=entry.value.product [productId]=entry.key [quantity]=entry.value.quantity></jhi-cartview>
-<button (click)="ViderPanier()">Vider le panier</button>
-<a routerLink="/paiement"><button routerLink="/paiement">Passer la commande</button></a>
-
-<p>Quantité Totale : {{totQte}}</p>
-<p>Prix Total : {{computeTotalPrice()}} €</p>
-</ul>
+<div id="over">
+    <div id="sup">
+        <ul>
+            <jhi-cartview *ngFor="let entry of panier | keyvalue" [product]=entry.value.product [productId]=entry.key [quantity]=entry.value.quantity></jhi-cartview>
+        </ul>
+        <div id="sider">
+                <p>{{totQte}} articles</p>
+                <p>{{computeTotalPrice()}} €</p>
+                <a routerLink="/paiement"><button>Commander</button></a>
+        </div>
+    </div>
+</div>
+<div id="botSup">
+    <div id="bot">
+        <div id="right">
+            <div id="qte">{{totQte}}</div>
+            <div id="tot">{{computeTotalPrice()}} €</div>
+        </div>
+    </div>
+    <div id="botSider">
+        <button (click)="ViderPanier()">Vider Panier</button>
+    </div>
+</div>
