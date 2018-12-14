@@ -45,6 +45,18 @@ public class Product implements Serializable {
 
 /* Methods */
 
+    public Product() {
+    }
+
+    public Product(Long id, String description, String specification, String name, String photolink, float price) {
+        this.id = id;
+        this.description = description;
+        this.specification = specification;
+        this.name = name;
+        this.photolink = photolink;
+        this.price = price;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
