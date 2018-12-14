@@ -1,6 +1,7 @@
 package ikb.service;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -13,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ikb.product.Product;
 import ikb.repository.ProductRepository;
 import ikb.service.dto.ProductDTO;
+
+import ikb.service.util.ObjectMapperUtils;
 
 /**
  * Service class for managing users.
@@ -32,9 +35,15 @@ public class ProductService {
     public Page<ProductDTO> getAllManagedProducts(Pageable pageable){       
         return productRepository.findAll(pageable).map(ProductDTO::new);
     }
-    public Optional<ProductDTO> getProduct(Long id){
+
+    public Optional<ProductDTO> getProduct(Long id) {
         return productRepository.findOneById(id).map(ProductDTO::new);
     }
+
+    public List<ProductDTO> getProductsByName(String name){
+        return ObjectMapperUtils.mapAll(productRepository.findByNameLike(name), ProductDTO.class);
+    }
+
     public Product createProduct(ProductDTO productDTO){
         Product product = new Product();
         product.setId(productDTO.getId());
