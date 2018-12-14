@@ -91,4 +91,12 @@ public class ProductResource {
                 .body(newProduct);
         }
     }
+
+    @GetMapping("/products?name={name:"+ Constants.NAME_REGEX + "}")
+    @Timed
+    public ResponseEntity<List<ProductDTO>> searchByName(@PathVariable String name) {
+        final Page<ProductDTO> page = productService.getProductsByName(name);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/products");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
 }
