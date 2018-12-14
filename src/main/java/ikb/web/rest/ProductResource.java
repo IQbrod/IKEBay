@@ -28,6 +28,7 @@ import ikb.service.dto.ProductDTO;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -39,20 +40,6 @@ public class ProductResource {
     public ProductResource(ProductService productService) {
         this.log = LoggerFactory.getLogger(ProductResource.class);
         this.productService = productService;
-    }
-
-    /**
-     * GET /products : get all products.
-     *
-     * @param pageable the pagination information
-     * @return the ResponseEntity with status 200 (OK) and with body all products
-     */
-    @GetMapping("/products")
-    @Timed
-    public ResponseEntity<List<ProductDTO>> getAllProducts(Pageable pageable) {
-        final Page<ProductDTO> page = productService.getAllManagedProducts(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/products");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
     /**
@@ -90,5 +77,14 @@ public class ProductResource {
                 .headers(HeaderUtil.createAlert( "A user is created with identifier " + newProduct.getId(), Long.toString(newProduct.getId())))
                 .body(newProduct);
         }
+    }
+
+    @GetMapping("/products") 
+    @Timed
+    public ResponseEntity<List<ProductDTO>> searchProducts(@RequestParam(name = "name", required = false) String name, Pageable pageable) {
+        log.debug("==== NAME ==== " + name);
+        final Page<ProductDTO> page = productService.getAllManagedProducts(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/products"); 
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 }

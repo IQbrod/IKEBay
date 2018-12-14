@@ -14,5 +14,6 @@ export class FinPaiementComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.paiementserv.formobject;
+        this.form.name = this.form.name.toUpperCase();
     }
 }

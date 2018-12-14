@@ -10,8 +10,8 @@ li {
 }
 
 li * {
-    border: solid red 1px;
     margin-left: 1%;
+    margin-right: 1%;
 }
 
 img {
@@ -19,18 +19,90 @@ img {
 }
 
 #name {
-    width: 30%;
+    text-align: start;
+    font-size: medium;
+    width: 60%;
 }
 
 #price {
-    width: 5%;
+    font-size: small;
+    width: 10%;
 }
 
-div {
-    width: 5%;
-    display: inline-flex;
+#qte {
+    width: 10%;
+    text-align: center;
+    vertical-align: center;
+}
+
+#qte * {
+    display: inline-block;
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+#qte p {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#qte button {
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+
+    font-weight: 500;
+    background-color: #b0d5ff;
+    color: black;
 }
 
 #total {
-    width: 8%;
+    font-size: large;
+    font-weight: 500;
+    width: 10%;
+}
+
+@media screen and (max-width: 1400px) {
+    #name {
+        width: 50%;
+    }
+
+    #qte {
+        width: 20%;
+    }
+
+    #qte p {
+        margin-left: 4%;
+        margin-right: 4%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #name {
+        width: 40%;
+    }
+
+    #total {
+        width: 20%;
+    }
+
+    #qte button {
+        font-size: smaller;
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #name {
+        width: 30%;
+    }
+
+    #qte {
+        width: 25%;
+    }
+
+    #total {
+        width: 25%;
+    }
 }

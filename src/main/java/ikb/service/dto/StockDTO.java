@@ -34,7 +34,7 @@ public class StockDTO {
 		return this.quantite;
 	}
 
-	public void setQuantite(int quantit)
+	public void setQuantite(int quantite)
 	{
 		this.quantite = quantite ;
 	}
@@ -53,7 +53,6 @@ public class StockDTO {
     public String tostring(){
         return "StockDTO{" +
             "id='" + id + '\'' +
-            "idPro='" + idPro + '\'' +
             ", quantite'" + quantite + '\'' +
             ", reserver'" + reserver + '\'' +
             "}";

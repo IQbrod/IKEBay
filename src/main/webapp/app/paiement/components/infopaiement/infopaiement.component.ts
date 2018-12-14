@@ -7,7 +7,7 @@ import { PaiementService } from 'app/paiement/paiement.service';
 @Component({
     selector: 'jhi-infopaiement',
     templateUrl: './infopaiement.component.html',
-    styles: []
+    styleUrls: ['infopaiement.css']
 })
 export class InfoPaiementComponent implements OnInit {
     formdata: PaiementInfos;
