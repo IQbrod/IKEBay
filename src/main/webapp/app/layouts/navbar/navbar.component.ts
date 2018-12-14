@@ -31,6 +31,9 @@ export class NavbarComponent implements OnInit {
     ) {
         this.version = VERSION ? 'v' + VERSION : '';
         this.isNavbarCollapsed = true;
+        this.router.routeReuseStrategy.shouldReuseRoute = function() {
+            return false;
+        };
     }
 
     ngOnInit() {
@@ -67,7 +70,8 @@ export class NavbarComponent implements OnInit {
     }
 
     sendSearch() {
-        this.productService.searchFor(this.sbinput);
-        this.router.navigate(['/products?name=' + this.sbinput]);
+        // this.productService.searchFor(this.sbinput);
+        // console.log(this.sbinput);
+        this.router.navigate(['/products'], { queryParams: { name: this.sbinput } });
     }
 }

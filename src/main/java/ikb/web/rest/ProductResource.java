@@ -81,11 +81,13 @@ public class ProductResource {
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     @Timed
     public ResponseEntity<List<ProductDTO>> searchProducts(@RequestParam(value = "name", required = false) String name, Pageable pageable) {
-        log.debug("==== NAME ==== " + name);
         final Page<ProductDTO> page;
+        log.debug("==== NAME ==== '" + name +"'");
         if(name==null){
+            log.debug("==== ALL PRODUCTS ==== ");
             page = productService.getAllManagedProducts(pageable);
         }else{
+            log.debug("==== NAMED PRODUCTS ==== ");
             page = productService.getProductsByName(name,pageable);
         }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/products"); 

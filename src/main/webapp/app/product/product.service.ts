@@ -38,6 +38,7 @@ export class ProductService {
         return this.http.get<Product[]>(this.resourceUrl, { observe: 'response' }).pipe(map(res => res.body));
     }
     searchFor(name: String): Observable<Product[]> {
+        // console.log('call : ', name);
         return this.http.get<Product[]>(`${this.resourceUrl}?name=${name}`, { observe: 'response' }).pipe(map(res => res.body));
     }
 }

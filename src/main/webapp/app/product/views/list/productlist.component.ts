@@ -14,13 +14,17 @@ export class ProductlistComponent implements OnInit {
     constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
-        this.activatedRoute.params.subscribe((params: Params) => {
+        this.activatedRoute.queryParams.subscribe((params: Params) => {
             this.name = params['name'];
         });
-        if (name != null) {
-            this.productService.searchFor(name).subscribe((prods: Product[]) => (this.products = prods));
+        // console.log(this.name);
+        if (this.name != null) {
+            // console.log('searchfor');
+            this.productService.searchFor(this.name).subscribe((prods: Product[]) => (this.products = prods));
         } else {
+            // console.log('listall');
             this.productService.listAll().subscribe((prods: Product[]) => (this.products = prods));
         }
+        // console.log(this.products.length)
     }
 }
