@@ -47,7 +47,9 @@ public class ProductService {
         log.debug("Created Information for Product: {}", product);
         return product;
     }
-
+    public Page<ProductDTO> getProductsByName(Pageable page, String name) {
+        return null;
+    }
     //public void UpdateProduct();
     //public void DeleteProduct(); //note : should instead set a flag (named for example 'hidden') in the product), as we want to keep it in database
     //public void getCategoryProducts(Long categoryId);
