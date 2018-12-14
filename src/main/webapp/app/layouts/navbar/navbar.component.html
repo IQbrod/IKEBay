@@ -21,7 +21,7 @@
             <li id="searchBar" class="nav-item">
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
                     <span>
-                        <span>Recherche</span>
+                        <input type="text" name='name' [(ngModel)]="flt" >
                     </span>
                 </a>
             </li>
