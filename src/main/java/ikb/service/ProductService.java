@@ -40,8 +40,8 @@ public class ProductService {
         return productRepository.findOneById(id).map(ProductDTO::new);
     }
 
-    public List<ProductDTO> getProductsByName(String name){
-        return ObjectMapperUtils.mapAll(productRepository.findByNameLike(name), ProductDTO.class);
+    public Page<ProductDTO> getProductsByName(String name){
+        return ObjectMapperUtils.mapAlltoPage(productRepository.findByNameLike(name), ProductDTO.class);
     }
 
     public Product createProduct(ProductDTO productDTO){
