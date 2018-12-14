@@ -37,4 +37,7 @@ export class ProductService {
     listAll(): Observable<Product[]> {
         return this.http.get<Product[]>(this.resourceUrl, { observe: 'response' }).pipe(map(res => res.body));
     }
+    searchFor(name: String): Observable<Product[]> {
+        return this.http.get<Product[]>(`${this.resourceUrl}?name=${name}`, { observe: 'response' }).pipe(map(res => res.body));
+    }
 }

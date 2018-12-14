@@ -11,6 +11,13 @@ export const ProductRoute: Routes = [
         }
     },
     {
+        path: 'products?name=:name',
+        component: ProductlistComponent,
+        data: {
+            pageTitle: 'Catalogue'
+        }
+    },
+    {
         path: 'products/:id',
         component: DetailedviewComponent,
         data: {

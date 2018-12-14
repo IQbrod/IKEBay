@@ -20,7 +20,7 @@
             </li>
             <li id="searchBar" class="nav-item">
                 <span>
-                    <input type="text">
+                    <input type="text" (keydown.enter)="sendSearch()" [(ngModel)]="sbinput">
                 </span>
             </li>
             <!-- PANIER -->
