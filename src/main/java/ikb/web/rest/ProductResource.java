@@ -28,7 +28,6 @@ import ikb.service.dto.ProductDTO;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -79,11 +78,18 @@ public class ProductResource {
         }
     }
 
-    @GetMapping("/products") 
+    @RequestMapping(value = "/products", method = RequestMethod.GET)
     @Timed
-    public ResponseEntity<List<ProductDTO>> searchProducts(@RequestParam(name = "name", required = false) String name, Pageable pageable) {
-        log.debug("==== NAME ==== " + name);
-        final Page<ProductDTO> page = productService.getAllManagedProducts(pageable);
+    public ResponseEntity<List<ProductDTO>> searchProducts(@RequestParam(value = "name", required = false) String name, Pageable pageable) {
+        final Page<ProductDTO> page;
+        log.debug("==== NAME ==== '" + name +"'");
+        if(name==null){
+            log.debug("==== ALL PRODUCTS ==== ");
+            page = productService.getAllManagedProducts(pageable);
+        }else{
+            log.debug("==== NAMED PRODUCTS ==== ");
+            page = productService.getProductsByName(name,pageable);
+        }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/products"); 
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

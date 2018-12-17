@@ -40,8 +40,8 @@ public class ProductService {
         return productRepository.findOneById(id).map(ProductDTO::new);
     }
 
-    public Page<ProductDTO> getProductsByName(String name){
-        return ObjectMapperUtils.mapAlltoPage(productRepository.findByNameLike(name), ProductDTO.class);
+    public Page<ProductDTO> getProductsByName(String name, Pageable pageable){
+        return productRepository.findByNameLike(name, pageable).map(ProductDTO::new);
     }
 
     public Product createProduct(ProductDTO productDTO){
@@ -56,6 +56,7 @@ public class ProductService {
         log.debug("Created Information for Product: {}", product);
         return product;
     }
+
     //public void UpdateProduct();
     //public void DeleteProduct(); //note : should instead set a flag (named for example 'hidden') in the product), as we want to keep it in database
     //public void getCategoryProducts(Long categoryId);
