@@ -108,10 +108,14 @@ jhi-panier {
     width: 15%;
 }
 
+#itStock {
+    width: 8%;
+}
+
 #itSearch {
     width: 20%;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 #itSearch span,
@@ -130,22 +134,22 @@ jhi-panier {
 @media screen and (max-width: 1400px) {
     #itSearch {
         width: 25%;
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 8%;
+        margin-right: 8%;
     }
 
     #itPan {
-        width: 20%;
+        width: 18%;
     }
 }
 
 @media screen and (max-width: 1000px) {
     #itPan {
-        width: 22%;
+        width: 20%;
     }
 
     #itSearch {
-        margin-left: 5%;
-        margin-right: 5%;
+        margin-left: 4%;
+        margin-right: 4%;
     }
 }
