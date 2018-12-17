@@ -56,11 +56,11 @@ Navbar
     }
 }
 
-@media screen and (max-width: 992px) {
+/* @media screen and (max-width: 992px) {
     .jh-logo-container {
         width: 100%;
     }
-}
+} */
 
 .navbar-title {
     display: inline-block;
@@ -89,6 +89,63 @@ Logo styles
 }
 
 jhi-panier {
-    width: 110px;
+    width: 10%;
     height: auto;
+}
+
+.navbar-nav {
+    width: 100%;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+
+/* .navbar-nav > * {
+    border: solid red 1px;
+} */
+
+#itHome {
+    width: 15%;
+}
+
+#itSearch {
+    width: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#itSearch span,
+#itSearch span input {
+    width: 100%;
+}
+
+#itPan {
+    width: 10%;
+}
+
+#itAcc {
+    width: 15%;
+}
+
+@media screen and (max-width: 1400px) {
+    #itSearch {
+        width: 25%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    #itPan {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #itPan {
+        width: 22%;
+    }
+
+    #itSearch {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }
