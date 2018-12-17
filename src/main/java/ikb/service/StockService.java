@@ -29,8 +29,8 @@ public class StockService {
         this.stockRepository = stockRepository;
     }
 
-    public Page<StockDTO> getAllManagedStocks(Pageable pageable){       
-        return stockRepository.findAll(pageable).map(StockDTO::new);
+    public Page<Long> getAllIDs(Pageable pageable){
+        return stockRepository.findStockIds(pageable);
     }
     public Optional<StockDTO> getStock(Long id){
         return stockRepository.findOneById(id).map(StockDTO::new);
