@@ -1,6 +1,10 @@
 <div *ngIf="stock">
-	<p>{{stock.id}}</p>
-	<p>stock: {{stock.quantite}} </p>
+	<p id="stock-id">id: {{stock.id}}</p>
+	<p id="stock-quantite">stock: {{stock.quantite}} </p>
 	<jhi-stock-quick-add [id]=stock.id></jhi-stock-quick-add> 
+	<jhi-stock-quick-remove [id]=stock.id></jhi-stock-quick-remove> 
+	<input type = "text" size="5" (keydown)="onKeydown($event)" value="0" id="myQuantite">
 </div> 
-		 
+
+
+
