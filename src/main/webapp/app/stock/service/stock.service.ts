@@ -50,19 +50,27 @@ export class StockService {
         }
 
         // Verification valeur != 0
-        if (this.stock.get(id).quantity === 0) {
-            this.stock.delete(id);
+        // if (this.stock.get(id).quantity === 0) {
+        //     this.stock.delete(id);
+        // }
+    }
+
+    removeItem(id: number, qte: number) {
+        if (this.stock.has(id)) {
+            if (this.stock.get(id).stock.quantite < qte) {
+                qte = this.stock.get(id).stock.quantite;
+            }
+            this.addItem(id, -qte);
+        } else {
+            return;
         }
     }
 
-    // removeItem(id: number, qte: number) {
-    //     if (this.stock.has(id)) {
-    //         if (this.stock.get(id).quantity < qte) {
-    //             qte = this.stock.get(id).quantity;
-    //         }
-    //         this.addItem(id, -qte);
-    //     } else {
-    //         return;
-    //     }
-    // }
+    setQuantity(id: number, qte: number) {
+        if (this.stock.has(id)) {
+            const entry = this.stock.get(id);
+            entry.stock.quantite = qte;
+            this.stock.set(id, entry);
+        }
+    }
 }
