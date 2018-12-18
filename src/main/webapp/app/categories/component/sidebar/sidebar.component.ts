@@ -23,7 +23,7 @@ export class SidebarComponent implements OnInit {
 
     filter(cat) {
         if (cat != 0) {
-            this.router.navigate(['/products'], { queryParams: { categorie: cat } });
+            this.router.navigate(['/products'], { queryParams: { categorieid: cat }, queryParamsHandling: 'merge' });
         } else {
             this.router.navigate(['/products']);
         }

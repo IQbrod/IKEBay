@@ -80,15 +80,28 @@ public class ProductResource {
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     @Timed
-    public ResponseEntity<List<ProductDTO>> searchProducts(@RequestParam(value = "name", required = false) String name, Pageable pageable) {
+    public ResponseEntity<List<ProductDTO>> searchProducts(@RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "categorieid", required = false) Long id, Pageable pageable) {
         final Page<ProductDTO> page;
-        log.debug("==== NAME ==== '" + name +"'");
-        if(name==null){
+        log.debug("==== NAME ==== '" + name + "'"+ "==== CATEGORIE ==== '" + id + "'");
+
+
+        if(name==null && id == null){
             log.debug("==== ALL PRODUCTS ==== ");
             page = productService.getAllManagedProducts(pageable);
-        }else{
+
+        }else if(name!=null && id == null){
             log.debug("==== NAMED PRODUCTS ==== ");
-            page = productService.getProductsByName(name,pageable);
+            page = productService.getProductsByName(name, pageable);
+
+        }else if(name==null && id != null){
+            log.debug("==== CATEGORIE PRODUCTS ==== ");
+            page = productService.getProductsByCategorie(id, pageable);
+
+        }else{
+            log.debug("==== NAMED && CATEGORIE PRODUCTS ==== ");
+            page = productService.getProductsByNameAndCategorie(name, id, pageable);
+
         }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/products"); 
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);

@@ -23,7 +23,7 @@ export class ProductlistComponent implements OnInit {
     ngOnInit() {
         this.activatedRoute.queryParams.subscribe((params: Params) => {
             this.name = params['name'];
-            this.categorie = params['categorie'];
+            this.categorie = params['categorieid'];
         });
 
         /* Changement par Name */
