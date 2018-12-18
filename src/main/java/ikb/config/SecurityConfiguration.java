@@ -86,6 +86,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/products/**")
             .antMatchers("/api/categories/**")
             .antMatchers("/api/categories")
+            .antMatchers("/api/stocksUser")
             .antMatchers("/api/stocksID")
             .antMatchers("/api/stocks/**");
     }
@@ -117,6 +118,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/management/health").permitAll()
             .antMatchers("/management/info").permitAll()
             .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            //.antMatchers("/api/stocks/**").hasAuthority(AuthoritiesConstants.VENDOR)
+            //.antMatchers("/api/stocks**").hasAuthority(AuthoritiesConstants.VENDOR)
         .and()
             .apply(securityConfigurerAdapter());
 

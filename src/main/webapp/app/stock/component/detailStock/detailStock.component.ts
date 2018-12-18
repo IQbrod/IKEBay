@@ -22,8 +22,8 @@ export class DetailStockComponent implements OnInit {
 
     onKeydown(event) {
         if (event.key === 'Enter') {
-            //alert('you just clicked enter');
-            this.quantite = parseInt(event.target.value);
+            // alert('you just clicked enter');
+            this.quantite = parseInt(event.target.value, 10);
             this.stockService.setQuantity(this.id, this.quantite);
         }
     }

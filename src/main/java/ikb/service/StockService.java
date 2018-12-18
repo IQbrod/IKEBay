@@ -33,7 +33,11 @@ public class StockService {
         return stockRepository.findStockIds(pageable);
     }
     public Optional<StockDTO> getStock(Long id){
-        return stockRepository.findOneById(id).map(StockDTO::new);
+        return stockRepository.findOneByProductid(id).map(StockDTO::new);
+    }
+
+    public Page<Long> getUserStocks(Pageable pageable, Long id) {
+        return stockRepository.findUserStocks(pageable, id);
     }
 
     public Stock createStock(StockDTO stockDTO){

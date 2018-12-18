@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Stock } from 'app/stock/stock.model';
 import { StockService } from 'app/stock/service/stock.service';
 import { StockEntry } from 'app/stock/model/stockEntry.model';
 
@@ -14,6 +13,7 @@ export class ListStockComponent implements OnInit {
     constructor(private stockService: StockService) {}
 
     ngOnInit() {
+        this.stockService.loadUserStocks();
         this.stock = this.stockService.getMap();
     }
 }

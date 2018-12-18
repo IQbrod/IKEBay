@@ -99,4 +99,8 @@ export class Principal {
     getImageUrl(): string {
         return this.isIdentityResolved() ? this.userIdentity.imageUrl : null;
     }
+
+    getId(): number {
+        return this.isAuthenticated() ? this.userIdentity.id : 0;
+    }
 }

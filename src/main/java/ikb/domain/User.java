@@ -1,6 +1,7 @@
 package ikb.domain;
 
 import ikb.config.Constants;
+import ikb.product.Product;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.StringUtils;
@@ -93,6 +94,15 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @BatchSize(size = 20)
     private Set<Authority> authorities = new HashSet<>();
+
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(name = "stock", joinColumns = {
+            @JoinColumn(name = "accountid", referencedColumnName = "id") }, inverseJoinColumns = {
+                    @JoinColumn(name = "productid", referencedColumnName = "id") })
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @BatchSize(size = 20)
+    private Set<Product> ownedProducts = new HashSet<>();
 
     public Long getId() {
         return id;

@@ -1,14 +1,14 @@
 import { ProductService } from './../../product/product.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { PanierEntry } from '../model/panierentry.model';
 
 @Injectable()
 export class PanierService {
-    private panier;
-    private totQte;
-    private qteSource;
-    public qtePublisher;
+    private panier: Map<number, PanierEntry>;
+    private totQte: number;
+    private qteSource: BehaviorSubject<number>;
+    public qtePublisher: Observable<number>;
 
     constructor(private productService: ProductService) {
         this.panier = new Map();

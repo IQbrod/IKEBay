@@ -49,8 +49,24 @@ public class StockResource {
      */
     @GetMapping("/stocksID")
     @Timed
+    //@PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<List<Long>> getAllStocks(Pageable pageable) {
         final Page<Long> page = stockService.getAllIDs(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/stocks");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
+     * GET /stocks : get all user stocks.
+     *
+     * @param pageable the pagination information
+     * @return the ResponseEntity with status 200 (OK) and with body all stocks
+     */
+    @GetMapping("/stocksUser")
+    @Timed
+    //@PreAuthorize("hasRole(\"" + AuthoritiesConstants.VENDOR + "\")")
+    public ResponseEntity<List<Long>> getUserStocks(Pageable pageable, @RequestParam(value = "id", required = false) Long id ) {
+        final Page<Long> page = stockService.getUserStocks(pageable, id);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/stocks");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -95,7 +111,7 @@ public class StockResource {
      */
     @PostMapping("/stocks")
     @Timed
-    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.ADMIN + "\")")
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.VENDOR + "\")")
     public ResponseEntity<Stock> createStock(@Validated @RequestBody StockDTO stockDTO) throws URISyntaxException {
         log.debug("REST request to save Stock : {}", stockDTO);
 

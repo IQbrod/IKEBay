@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { DetailStockComponent } from './component/detailStock/detailStock.component';
 import { ListStockComponent } from './component/list/listStock.component';
+import { UserRouteAccessService } from 'app/core';
 
 export const StockRoute: Routes = [
     {
@@ -8,7 +8,9 @@ export const StockRoute: Routes = [
         // component: DetailStockComponent,
         component: ListStockComponent,
         data: {
+            authorities: ['ROLE_VENDOR'],
             pageTitle: 'Stock'
-        }
+        },
+        canActivate: [UserRouteAccessService]
     }
 ];

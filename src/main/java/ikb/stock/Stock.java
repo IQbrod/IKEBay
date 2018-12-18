@@ -20,9 +20,12 @@ public class Stock implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    /*@GeneratedValue(strategy = GenerationType.IDENTITY)*/
-    private Long id;
+    /* @GeneratedValue(strategy = GenerationType.IDENTITY) */
+    private Long productid;
 
+    
+    @Column(name = "accountid", nullable = false)
+    private Long accountid;
 
     @Column(name = "quantite", nullable = false)
     private int quantite;
@@ -40,30 +43,36 @@ public class Stock implements Serializable {
             return false;
         }
         Stock stock = (Stock) o;
-        return id == stock.id;
+        return productid == stock.productid;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, quantite, reserver);
+        return Objects.hash(productid, quantite, reserver);
     }
 
     @Override
     public String toString() {
-        return "{" + " id='" + getId() + 
-               "'" + ", quantite='" + getQuantite() + 
-               "'" + ", reserver='" + getReServer() + "'" + 
-               "}";
+        return "{" + " productid='" + getId() + "'" + ", accountid='" + getAccountid() + "'" + ", quantite='" + getQuantite()
+                + "'" + ", reserver='" + getReServer() + "'" + "}";
     }
 
     /* Getter & Setter */
 
-    public Long getId() {
-        return this.id;
+    public Long getAccountid() {
+        return this.accountid;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAccountid(Long accountid) {
+        this.accountid = accountid;
+    }
+
+    public Long getId() {
+        return this.productid;
+    }
+
+    public void setId(Long productid) {
+        this.productid = productid;
     }
 
     public int getQuantite() {
