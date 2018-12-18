@@ -36,6 +36,8 @@ export class ProductlistComponent implements OnInit {
         /* Chargement de la categorie */
         if (this.categorie != null) {
             this.categorieService.setCategorie(this.categorie);
+        } else {
+            this.categorieService.setCategorie(0);
         }
     }
 }
