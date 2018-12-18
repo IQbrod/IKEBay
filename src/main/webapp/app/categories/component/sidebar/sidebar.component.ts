@@ -13,6 +13,6 @@ export class SidebarComponent implements OnInit {
     constructor(private categorieService: CategorieService) {}
 
     ngOnInit() {
-        // this.categorieService.listAll().subscribe((c: Categorie[]) => (this.categ = c));
+        this.categorieService.listAll().subscribe((c: Categorie[]) => (this.categ = c));
     }
 }
