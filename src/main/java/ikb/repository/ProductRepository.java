@@ -22,4 +22,10 @@ public interface ProductRepository extends JpaRepository<Product, Integer>, Pagi
 
     @Query("SELECT p FROM Product p WHERE p.name LIKE CONCAT('%',:name,'%')")
     Page<Product> findByNameLike(@Param("name") String name, Pageable pageable);
+
+    @Query("SELECT p FROM Product p LEFT JOIN p.categories b WHERE b.id = :id")
+    Page<Product> findByCategorie(@Param("id") Long id, Pageable pageable);
+
+    @Query("SELECT p FROM Product p LEFT JOIN p.categories b WHERE p.name LIKE CONCAT('%',:name,'%') AND b.id = :id")
+    Page<Product> findByNameLikeAndCategorieEquals(@Param("name") String name, @Param("categorieid") Long id, Pageable pageable);
 }

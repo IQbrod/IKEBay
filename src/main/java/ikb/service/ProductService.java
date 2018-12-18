@@ -1,6 +1,5 @@
 package ikb.service;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -28,11 +27,11 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public ProductService(ProductRepository productRepository){
+    public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
-    public Page<ProductDTO> getAllManagedProducts(Pageable pageable){       
+    public Page<ProductDTO> getAllManagedProducts(Pageable pageable) {
         return productRepository.findAll(pageable).map(ProductDTO::new);
     }
 
@@ -40,11 +39,19 @@ public class ProductService {
         return productRepository.findOneById(id).map(ProductDTO::new);
     }
 
-    public Page<ProductDTO> getProductsByName(String name, Pageable pageable){
+    public Page<ProductDTO> getProductsByName(String name, Pageable pageable) {
         return productRepository.findByNameLike(name, pageable).map(ProductDTO::new);
     }
 
-    public Product createProduct(ProductDTO productDTO){
+    public Page<ProductDTO> getProductsByNameAndCategorie(String name, Long id, Pageable pageable) {
+        return productRepository.findByNameLikeAndCategorieEquals(name, id, pageable).map(ProductDTO::new);
+    }
+
+    public Page<ProductDTO> getProductsByCategorie(Long id, Pageable pageable) {
+        return productRepository.findByCategorie(id, pageable).map(ProductDTO::new);
+    }
+
+    public Product createProduct(ProductDTO productDTO) {
         Product product = new Product();
         product.setId(productDTO.getId());
         product.setDescription(productDTO.getDescription());
@@ -57,7 +64,8 @@ public class ProductService {
         return product;
     }
 
-    //public void UpdateProduct();
-    //public void DeleteProduct(); //note : should instead set a flag (named for example 'hidden') in the product), as we want to keep it in database
-    //public void getCategoryProducts(Long categoryId);
+    // public void UpdateProduct();
+    // public void DeleteProduct(); //note : should instead set a flag (named for
+    // example 'hidden') in the product), as we want to keep it in database
+    // public void getCategoryProducts(Long categoryId);
 }
