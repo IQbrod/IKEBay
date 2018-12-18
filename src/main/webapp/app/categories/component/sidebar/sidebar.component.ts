@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Categorie } from 'app/categories/model/categorie.model';
 import { CategorieService } from 'app/categories/service/categorie.service';
 import { Router } from '@angular/router';
@@ -10,14 +10,22 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
     categ: Categorie[];
+    selId: number;
 
-    constructor(private categorieService: CategorieService, private router: Router) {}
+    constructor(private categorieService: CategorieService, private router: Router) {
+        this.selId = 0;
+        this.categorieService.catPublisher.subscribe((id: number) => (this.selId = id));
+    }
 
     ngOnInit() {
         this.categorieService.listAll().subscribe((c: Categorie[]) => (this.categ = c));
     }
 
     filter(cat) {
-        this.router.navigate(['/products'], { queryParams: { category: cat } });
+        if (cat != 0) {
+            this.router.navigate(['/products'], { queryParams: { categorie: cat } });
+        } else {
+            this.router.navigate(['/products']);
+        }
     }
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Product } from 'app/product/product.model';
 import { ProductService } from 'app/product/product.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { CategorieService } from 'app/categories/service/categorie.service';
 
 @Component({
     selector: 'jhi-productlist',
@@ -11,20 +12,30 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class ProductlistComponent implements OnInit {
     products: Product[] = [];
     name: string;
-    constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) {}
+    categorie: number;
+
+    constructor(
+        private productService: ProductService,
+        private activatedRoute: ActivatedRoute,
+        private categorieService: CategorieService
+    ) {}
 
     ngOnInit() {
         this.activatedRoute.queryParams.subscribe((params: Params) => {
             this.name = params['name'];
+            this.categorie = params['categorie'];
         });
-        // console.log(this.name);
+
+        /* Changement par Name */
         if (this.name != null) {
-            // console.log('searchfor');
             this.productService.searchFor(this.name).subscribe((prods: Product[]) => (this.products = prods));
         } else {
-            // console.log('listall');
             this.productService.listAll().subscribe((prods: Product[]) => (this.products = prods));
         }
-        // console.log(this.products.length)
+
+        /* Chargement de la categorie */
+        if (this.categorie != null) {
+            this.categorieService.setCategorie(this.categorie);
+        }
     }
 }

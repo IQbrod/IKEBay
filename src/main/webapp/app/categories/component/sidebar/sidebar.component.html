@@ -1,7 +1,7 @@
 <div id="mainSid">
     <label>Catégorie: </label>
     <select ng-model="data.singleSelect" (change)="filter($event.target.value)">
-        <option value=""></option>
-        <option *ngFor="let c of categ" value={{c.id}}>{{c.name}}</option>
+        <option value=0></option>
+        <option *ngFor="let c of categ" value={{c.id}} [selected]="c.id == selId">{{c.name}}</option>
     </div>
 </div>
