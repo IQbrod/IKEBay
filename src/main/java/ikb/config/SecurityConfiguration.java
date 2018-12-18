@@ -83,7 +83,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/test/**")
             //modif yann : empecher spring security de filtrer  => autoriser pour tous
             .antMatchers("/api/products")
-            .antMatchers("/api/products/**");
+            .antMatchers("/api/products/**")
+            .antMatchers("/api/categories/**")
+            .antMatchers("/api/categories");
     }
 
     @Override

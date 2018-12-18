@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="autoIncrement" value="true"/>
+
+    <changeSet id="000001" author="Ducruyy">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="categorie"/>
+            <tableExists tableName="subcategorie"/>
+            <tableExists tableName="belongto"/>
+
+        </preConditions>
+        <dropTable tableName="categorie"/>
+        <dropTable tableName="subcategorie"/>
+        <dropTable tableName="belongto"/>
+
+    </changeSet>
+
+    <changeSet id="000002" author="Ducruyy">
+        <createTable tableName="categorie">
+
+            <column name="id" type="int" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <createTable tableName="subcategorie">
+
+            <column name="parentid" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="sonid" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="parentid" baseTableName="subcategorie" constraintName="fk_subcat_1" referencedColumnNames="id" referencedTableName="categorie"/>
+
+        <addForeignKeyConstraint baseColumnNames="sonid" baseTableName="subcategorie" constraintName="fk_subcat_2" referencedColumnNames="id" referencedTableName="categorie"/>
+
+
+        <createTable tableName="belongto">
+            <column name="productid" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="categorieid" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <addForeignKeyConstraint baseColumnNames="categorieid" baseTableName="belongto" constraintName="fk_belongto_1" referencedColumnNames="id" referencedTableName="categorie"/>
+        
+        <addForeignKeyConstraint baseColumnNames="productid" baseTableName="belongto" constraintName="fk_belongto_2" referencedColumnNames="id" referencedTableName="product"/>
+
+        <addPrimaryKey columnNames="productid, categorieid" tableName="belongto"/>
+
+        <loadData encoding="UTF-8" file="config/liquibase/ikebay_sql/categories.csv" separator=";" tableName="categorie"/>
+        <loadData encoding="UTF-8" file="config/liquibase/ikebay_sql/subcategories.csv" separator=";" tableName="subcategorie"/>
+        <loadData encoding="UTF-8" file="config/liquibase/ikebay_sql/belongto.csv" separator=";" tableName="belongto"/>
+
+    </changeSet>
+</databaseChangeLog>
