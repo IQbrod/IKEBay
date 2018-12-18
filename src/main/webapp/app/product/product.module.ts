@@ -7,9 +7,10 @@ import { ProductService } from 'app/product/product.service';
 import { ProductlistComponent } from './views/list/productlist.component';
 import { CommonModule } from '@angular/common';
 import { ProductRoute } from './product.route';
+import { CategorieModule } from 'app/categories/categorie.module';
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forRoot(ProductRoute), PanierModule],
+    imports: [CommonModule, RouterModule.forRoot(ProductRoute), PanierModule, CategorieModule],
     declarations: [SimpleviewComponent, DetailedviewComponent, ProductlistComponent],
     exports: [SimpleviewComponent, DetailedviewComponent, ProductlistComponent]
 })
