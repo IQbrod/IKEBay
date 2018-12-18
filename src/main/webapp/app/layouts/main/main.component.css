@@ -1,0 +1,18 @@
+#mainSup {
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+#mainSider {
+    width: 20%;
+    background-color: blue;
+}
+
+#mainContent {
+    margin-left: 2%;
+    width: 74%;
+    margin-right: 2%;
+    margin-bottom: 1%;
+}

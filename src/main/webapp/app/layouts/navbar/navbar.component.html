@@ -10,7 +10,7 @@
     </div>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li id="itHome" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
                     <span>
                         <fa-icon [icon]="'home'"></fa-icon>
@@ -18,13 +18,15 @@
                     </span>
                 </a>
             </li>
-            <li id="searchBar" class="nav-item">
+            <!--Stock-->
+            <jhi-stock id="itStock"></jhi-stock>
+            <li id="itSearch">
                 <span>
                     <input type="text" (keydown.enter)="sendSearch()" [(ngModel)]="sbinput">
                 </span>
             </li>
             <!-- PANIER -->
-            <jhi-panier></jhi-panier>
+            <jhi-panier id="itPan"></jhi-panier>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
             <!-- <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
@@ -39,7 +41,7 @@
                     < jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here >
                 </ul>
             </li> -->
-            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
                     <span>
                         <fa-icon [icon]="'user-plus'"></fa-icon>

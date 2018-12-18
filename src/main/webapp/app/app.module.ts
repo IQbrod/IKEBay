@@ -24,7 +24,8 @@ import { ProductService } from './product/product.service';
 import { PanierService } from './panier/service/panier.service';
 import { PanierModule } from 'app/panier/panier.module';
 import { PaiementService } from './paiement/paiement.service';
-
+import { StockModule } from 'app/stock/stock.module';
+import { StockService } from './stock/service/stock.service';
 @NgModule({
     imports: [
         BrowserModule,
@@ -35,7 +36,8 @@ import { PaiementService } from './paiement/paiement.service';
         IkeBayHomeModule,
         IkeBayAccountModule,
         IkeBayEntityModule,
-        PanierModule
+        PanierModule,
+        StockModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
@@ -66,7 +68,8 @@ import { PaiementService } from './paiement/paiement.service';
         },
         PanierService,
         ProductService,
-        PaiementService
+        PaiementService,
+        StockService
     ],
     bootstrap: [JhiMainComponent]
 })
