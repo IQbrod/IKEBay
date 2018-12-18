@@ -26,6 +26,7 @@ import { PanierModule } from 'app/panier/panier.module';
 import { PaiementService } from './paiement/paiement.service';
 import { StockModule } from 'app/stock/stock.module';
 import { StockService } from './stock/service/stock.service';
+import { SidebarComponent } from 'app/categories/component/sidebar/sidebar.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -40,7 +41,7 @@ import { StockService } from './stock/service/stock.service';
         StockModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
+    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, SidebarComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
