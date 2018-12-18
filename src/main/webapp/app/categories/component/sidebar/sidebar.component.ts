@@ -21,11 +21,12 @@ export class SidebarComponent implements OnInit {
         this.categorieService.listAll().subscribe((c: Categorie[]) => (this.categ = c));
     }
 
-    filter(cat) {
-        if (cat != 0) {
+    filter(cat: string) {
+        if (cat !== '0') {
             this.router.navigate(['/products'], { queryParams: { categorieid: cat }, queryParamsHandling: 'merge' });
         } else {
-            this.router.navigate(['/products']);
+            // remove the categorie id from queryParams
+            this.router.navigate(['/products'], { queryParams: { categorieid: null }, queryParamsHandling: 'merge' });
         }
     }
 }

@@ -27,11 +27,7 @@ export class ProductlistComponent implements OnInit {
         });
 
         /* Changement par Name */
-        if (this.name != null) {
-            this.productService.searchFor(this.name).subscribe((prods: Product[]) => (this.products = prods));
-        } else {
-            this.productService.listAll().subscribe((prods: Product[]) => (this.products = prods));
-        }
+        this.productService.searchFor(this.name, this.categorie).subscribe((prods: Product[]) => (this.products = prods));
 
         /* Chargement de la categorie */
         if (this.categorie != null) {
