@@ -34,11 +34,24 @@ export class ProductService {
     getProduct(Id: number): Observable<Product> {
         return this.http.get<Product>(`${this.resourceUrl}/${Id}`, { observe: 'response' }).pipe(map(res => res.body));
     }
-    listAll(): Observable<Product[]> {
-        return this.http.get<Product[]>(this.resourceUrl, { observe: 'response' }).pipe(map(res => res.body));
-    }
-    searchFor(name: String): Observable<Product[]> {
+    /* searchFor(name: String): Observable<Product[]> {
         // console.log('call : ', name);
         return this.http.get<Product[]>(`${this.resourceUrl}?name=${name}`, { observe: 'response' }).pipe(map(res => res.body));
+    } */
+    searchFor(name: String, categorie: number): Observable<Product[]> {
+        // console.log('call : ', name);
+        if (name == null && categorie == null) {
+            return this.http.get<Product[]>(this.resourceUrl, { observe: 'response' }).pipe(map(res => res.body));
+        } else if (name == null && categorie != null) {
+            return this.http
+                .get<Product[]>(`${this.resourceUrl}?categorieid=${categorie}`, { observe: 'response' })
+                .pipe(map(res => res.body));
+        } else if (name != null && categorie == null) {
+            return this.http.get<Product[]>(`${this.resourceUrl}?name=${name}`, { observe: 'response' }).pipe(map(res => res.body));
+        } else {
+            return this.http
+                .get<Product[]>(`${this.resourceUrl}?name=${name}&categorieid=${categorie}`, { observe: 'response' })
+                .pipe(map(res => res.body));
+        }
     }
 }
