@@ -24,7 +24,6 @@ Main page styles
 
 jhi-productlist {
     display: block;
-    width: 75%;
-    margin-left: 25%; /* SIDDER CATEGORIES */
+    width: 100%;
     text-align: center;
 }
