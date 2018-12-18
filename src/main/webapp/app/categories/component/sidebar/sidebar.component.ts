@@ -18,6 +18,6 @@ export class SidebarComponent implements OnInit {
     }
 
     filter(cat) {
-        this.router.navigate(['/products'], { queryParams: { category: cat } });
+        this.router.navigate(['/products'], { queryParams: { categorieid: cat }, queryParamsHandling: 'merge' });
     }
 }
