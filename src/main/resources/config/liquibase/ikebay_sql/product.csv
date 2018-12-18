@@ -1,11 +1,51 @@
 id;name;price;description;specification;photolink
-1;Canape Bleusaille;200;Un canapé bleu;test;ile.png
-2;Canape Rougeâtre;150;Un canapé rouge;truc;montagne.png
-3;Canape Verdoyant;800;Un canapé vert;astuce;foret.png
-4;Canape Noireau;50.96;Un canapé jaune;indice;marais.png
-5;Canape Blanchouille;667;Un canapé blanc;enigme;plaine.png
-6;Une Carte;321;C'est une carte;pourquoi;magic.png
-7;Une Autre Carte;1;C'est aussi une carte;ça;magic.png
-8;Une Vraie Carte;127;C'est encore une carte;marche;magic.png
-9;Une Carte ?;28.7;C'est là aussi une carte;pas;magic.png
-10;Encore une :/;5.36;C'est vraiment une carte;???!;magic.png
+1;Canapé conv d'angle avec rangement;429;A la fois canapé méridienne et lit pour deux;Couleur gris Taille 230x151;1.png
+2;Desserte roulante;39;La tablette vous permet de ranger des magazines par exemple et de libérer de la place sur le plateau de table;Couleur blanc Taille 64x64 cm;2.png
+3;Caisson à tiroirs sur roulettes;45;Chaque tiroir comporte une fente pour étiquette, ce qui vous permet de mieux organiser le contenu et de trouver facilement ce que vous cherchez;Couleur bleu Taille 28x69 cm;3.png
+4;Chaise à accoudoirs;59;Chaise constituée d'une seule pièce, ne requiert ni montage ni vissage;Couleur vert Dimensions 55x51x83;4.png
+5;Bureau plaqué chêne blanchi;169;Finition soignée à l'arrière du meuble permet de le placer au milieu de la pièce;Couleur blanc Taille 140x65 cm;5.png
+6;Étagère;119;De style rustique, cette étagère en métal et bois massif rend chaque meuble unique;Couleur noir Taille Taille 100x136 cm;6.png
+7;Fauteuil;149;Le coussin du dossier est réversible (deux surfaces d'usure) et vous offre un soutien moelleux;Couleur rouge foncé Dimensions 71x73x73 cm;7.png
+8;Fauteuil;249;Recouvert d'un tissu en velours doux et résistant, tissé avec du polyester;Couleur gris foncé Dimensions 62x72x75 cm;8.png
+9;Bibliothèque;39.30; Un seul élément peut servir de rangement dans un espace retreint, ou servir de base pour une solution de rangement plus importante lorsque les besoins évoluent;Couleur blanc Taille 80x28x202 cm;9.png
+10;Banc TV;9.95;Un banc TV posé au sol doit être fixé au mur à l'aide de l'accessoire de fixation inclus;Couleur noir Taille 90x26x45 cm;10.png
+11;Module siège;200;Peut s'utiliser seul ou se combiner pour créer un canapé de la taille dont vous souhaitez et qui vous correspond;Couleur blanc Taille 84x42x103 cm;11.png
+12;Desserte roulante;39;La tablette vous permet de ranger des magazines par exemple et de libérer de la place sur le plateau de table;Couleur blanc Taille 64x64 cm;12.png
+13;Lampadaire;49.90;Idéal au dessus d'une table basse. Se branche sur une prise murale;Couleur noir;13.png
+14;Élt bas 2 faces/3 tiroirs;158;Amortisseurs intégrés pour une fermeture des portes en douceur et en silence;Couleur noir;14.png
+15;Armoire métallique;58;Passe-câbles en dessous du meuble. Portes verrouillables;Couleur blanc;15.png
+16;Chaise;75;surface vernie est facile à nettoyer et résiste aux taches;Couleur brun foncé;16.png
+17;Chaise haute bébé;69;Vous pouvez retirer le plateau pour faciliter le nettoyage;Couleur noir;17.png
+18;Table conférence;1058;La surface en placage résiste aux liquides et à la chaleur libérée par l'ordinateur;Couleur noir Taille 420x140 cm;18.png
+19;Élément mural 2 portes vitrées;119;Charnières à clipser qui se montent sur la porte sans vis;Couleur blanc Taille 80x40 cm;19.png
+20;Plan de travail;99;En bois massif, un matériau naturel et résistant qui crée une ambiance chaleureuse dans la cuisine;Taille 246x2.8 cm;20.png
+21;Rideaux;69;Rideaux épais en velours de coton;Couleur rouge foncé Taille 140x300 cm;21.png
+22;Cadre de lit;79;En bois massif;Taille 140x200 cm;22.png
+23;Bureau;229;Passe-câbles pour une organisation simple;Couleur brun noir Taille 155x65 cm;23.png
+24;Coussin;9.99;Housse est facile à retirer grâce à la fermeture à glissière;Multicolore;24.png
+25;Sac à linge;4.99;Le sac à linge possède une boucle qui permet de le suspendre à un crochet et de le remplir ainsi plus facilement;Couleur noir/blanc Taille 60 L;25.png
+26;Desserte;39.90;Grâce à ses roulettes réglables, cette desserte garde sa stabilité même sur les sols irréguliers;Couleur bleu foncé Taille 35x45x78 cm;26.png
+27;Armoire-penderie;415;Charnières avec amortisseur intégré pour une fermeture des portes en douceur et en silence;Couleur blanc/rouge foncé Taille 150x60x236 cm;27.png
+28;Matelas à ressorts;129;Une épaisse couche de garnissage souple ajoute au soutien et au confort;Couleur beige foncé Taille 90x200 cm;28.png
+29;Lit d'enfant extensible;149;Lattes en bois massif pour un soutien ferme;Couleur bleu moyen Taille 80x200 cm;29.png
+30;Range-couteaux pour tiroir;15;Surface en bois résistante mais qui n'émousse pas la lame des couteaux;Couleur bambou Taille 20x50 cm;30.png
+31;Table+2 chaises pliantes;197;Les 2 rabats vous permettent d'adapter la taille de la table à vos besoins;Table à rallonge 77x62x71 cm. Chaise pliante 87x58x45 cm;31.png
+32;Boîte de rangement;7.99;Facile à déplacer grâce aux poignées latérales;Taille 30x30x30 cm;32.png
+33;2 étagères;207.96;Reste stable même sur un sol irrégulier car les pieds peuvent être réglés;Taille 197x36x181 cm;33.png
+34;Bibliothèque vitrée;149;Tablettes réglables : à placer selon vos besoins;Couleur rouge Taille 80x30x202 cm;34.png
+35;Canapé 2 places;249;Il existe un choix de housses pour vous permettre de renouveler facilement l'aspect de votre canapé et celui de toute la pièce;Couleur rouge;35.png
+36;Chaise pivotante;39.90;Ce siège de bureau dispose d'une fonction permettant de régler la résistance d'inclinaison en fonction de vos mouvements et de votre poids;Couleur noir;36.png
+37;Repose-pieds;79;Peut servir de siège d'appoint ou de repose-pied;Multicolore;37.png
+38;Planche à repasser de table;4.99;La planche à repasser est très stable et résistante car la structure et la base sont en acier;Taille 73x32 cm;38.png
+39;Canapé 2 places;220;En accolant différents sièges vous créez un canapé dont la forme et la taille s'adaptent parfaitement à votre espace extérieur;Couleur brun/beige Taille 143x80x73 cm;39.png
+40;Commode 9 tiroirs;259;Les tiroirs, qui sont faciles à ouvrir et à fermer, sont équipés d'arrêts;Couleur gris foncé Taille 118x92 cm;40.png
+41;Armoire métallique;85;Un passe-câbles en dessous du meuble permet de regrouper les câbles;Couleur bleu Taille 119x63 cm;41.png
+42;Fauteuil haut;249;Grâce à son design intemporel, il s'adapte à n'importe quelle pièce de la maison et se coordonne aisément avec les autres meubles;Couleur brun-rose clair;42.png
+43;Étagère;412;Ces rangements sont solides, faciles à nettoyer et ne rouillent pas puisqu'ils sont fabriqués en acier galvanisé peint époxy;Peut supporter une charge allant jusqu’à 130 kg;43.png
+44;Lampadaire;49.90;Arceau réglable en longueur, selon les besoins;Max.: 60 W;44.png
+45;Armoire à chaussures;119;Chaque compartiment possède des rangées doubles qui peuvent contenir davantage de chaussures;3 casiers Couleur blanc Taille 79x148 cm;45.png
+46;Tabouret;4.50;Le tabouret est empilable pour en garder plusieurs à portée de main sans occuper trop de place;Couleur rouge Poids max 100 kg;46.png
+47;Canapé convertible en 3 places;699;L'espace de rangement sous l'assise peut accueillir du linge de lit par exemple;Couleur brun foncé À monter soi-même;47.png
+48;Étendoir mural;25;La largeur peut être adaptée à vos besoins;Capacité d'étendage 4-7 mètres;48.png
+49;Bibliothèque;268;Les tablettes réglables vous permettent de personnaliser votre rangement en fonction de vos besoins;Plaqué chêne Taille 200x237x28 cm;49.png
+50;Armoire-penderie;473;Charnières avec amortisseur intégré pour une fermeture des portes en douceur et en silence;Couleur bleu Taille 175x60x237 cm;50.png
