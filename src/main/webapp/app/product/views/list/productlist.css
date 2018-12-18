@@ -1,10 +1,28 @@
-div {
+#contSup {
+    display: inline-flex;
+    width: 100%;
+}
+
+#contLeft {
+    width: 22%;
+    background-color: #b0d5ff;
+    border-radius: 30px;
+}
+
+#contRight {
+    width: 74%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#ct {
+    margin: 3px;
+
     padding-left: 2%;
     padding-right: 2%;
     padding-bottom: 1%;
     padding-top: 1%;
     border-radius: 30px;
-    margin: 3px;
 
     display: inline-block;
 
@@ -12,7 +30,7 @@ div {
     background-color: #ebf4ff;
 }
 
-div:hover {
+#ct:hover {
     background-color: #b0d5ff;
     border: #0079ed solid 1px;
 }
