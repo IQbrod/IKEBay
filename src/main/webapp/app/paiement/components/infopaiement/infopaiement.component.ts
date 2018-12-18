@@ -47,7 +47,7 @@ export class InfoPaiementComponent implements OnInit {
         }
     }
 
-    saveinfo(form: NgForm) {
+    saveinfo() {
         this.paiementserv.formobject = this.formdata;
         this.router.navigate(['/paiementvalide']);
         return;

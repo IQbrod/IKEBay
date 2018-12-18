@@ -2,12 +2,19 @@ package ikb.product;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 import java.io.Serializable;
 
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import ikb.categorie.Categorie;
 
 /**
  * A sellable product.
@@ -43,7 +50,16 @@ public class Product implements Serializable {
     @Column(name = "price", nullable = false)
     private float price;
 
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(name = "belongto", joinColumns = {
+            @JoinColumn(name = "productid", referencedColumnName = "id") }, inverseJoinColumns = {
+                    @JoinColumn(name = "categorieid", referencedColumnName = "id") })
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @BatchSize(size = 20)
+    private Set<Categorie> categories = new HashSet<>();
 /* Methods */
+
 
     public Product() {
     }
