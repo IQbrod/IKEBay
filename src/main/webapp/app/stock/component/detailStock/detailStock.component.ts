@@ -12,13 +12,10 @@ import { Product } from 'app/product/product.model';
 export class DetailStockComponent implements OnInit {
     @Input() id: number;
     @Input() stock: Stock;
-    products: Product[] = [];
     quantite: number;
     constructor(private stockService: StockService, private productService: ProductService) {}
 
-    ngOnInit() {
-        this.productService.listAll().subscribe((prods: Product[]) => (this.products = prods));
-    }
+    ngOnInit() {}
 
     onKeydown(event) {
         if (event.key === 'Enter') {
