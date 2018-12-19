@@ -13,6 +13,7 @@ export class ProductlistComponent implements OnInit {
     products: Product[] = [];
     name: string;
     categorie: number;
+    page: number;
 
     constructor(
         private productService: ProductService,
@@ -24,6 +25,7 @@ export class ProductlistComponent implements OnInit {
         this.activatedRoute.queryParams.subscribe((params: Params) => {
             this.name = params['name'];
             this.categorie = params['categorieid'];
+            this.page = params['page'];
         });
 
         /* Changement par Name */
@@ -34,6 +36,11 @@ export class ProductlistComponent implements OnInit {
             this.categorieService.setCategorie(this.categorie);
         } else {
             this.categorieService.setCategorie(0);
+        }
+
+        /* Chargement de la page */
+        if (this.page != null) {
+            this.categorieService.setPage(this.page);
         }
     }
 }

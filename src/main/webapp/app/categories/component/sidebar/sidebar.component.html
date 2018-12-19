@@ -1,8 +1,14 @@
 <div id="mainSid">
-    <label>Catégorie: </label>
-    <select ng-model="data.singleSelect" (change)="filter($event.target.value)">
-        <option value=0></option>
-        <option *ngFor="let c of categ" value={{c.id}} [selected]="c.id == selId">{{c.name}}</option>
-    </select>
+    <p>Filtrer ma recherche:</p>
+    <div>
+        <label>Catégorie: </label>
+        <select ng-model="data.singleSelect" (change)="filter($event.target.value)">
+            <option value=0></option>
+            <option *ngFor="let c of categ" value={{c.id}} [selected]="c.id == selId">{{c.name}}</option>
+        </select>
+    </div>
+    <div>
+        <label>Page: </label>
+        <input type="number" size="5" min="0" (change)="filterPage($event.target.value)" value={{pageN}}>
     </div>
 </div>
