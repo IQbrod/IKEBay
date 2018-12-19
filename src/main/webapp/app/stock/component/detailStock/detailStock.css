@@ -1,35 +1,44 @@
-p {
-    margin: 100;
-    padding: 0;
-}
-
-div:hover {
-    background-color: #b0d5ff;
-    border: #0079ed solid 1px;
-}
-
-div {
+#stockSup {
     width: 98%;
 
     display: inline-flex;
-    align-items: baseline;
+    align-items: stretch;
+    justify-content: space-between;
 
     border-radius: 20px;
+    border: #cbe5ff solid 1px;
     background-color: #cbe5ff;
     margin: 1%;
 }
 
-#stock-id {
-    text-align: start;
-    font-size: large;
-    width: 60%;
+#stockSup:hover {
+    background-color: #b0d5ff;
+    border-color: #0079ed;
 }
 
-#stock-quantite {
-    font-size: large;
-    width: 10%;
+#stockLeft {
+    width: 48%;
+    display: inline-flex;
+    align-items: baseline;
 }
 
-img {
+#stockLeft img {
     align-self: center;
+}
+
+#stockLeft p {
+    padding: 0;
+    margin: 0;
+    margin-left: 6%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#stockRight {
+    margin-right: 1%;
+}
+
+#stockRight * {
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
