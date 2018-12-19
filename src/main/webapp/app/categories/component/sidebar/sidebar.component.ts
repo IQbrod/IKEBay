@@ -11,10 +11,15 @@ import { Router } from '@angular/router';
 export class SidebarComponent implements OnInit {
     categ: Categorie[];
     selId: number;
+    pageN: number;
 
     constructor(private categorieService: CategorieService, private router: Router) {
         this.selId = 0;
+        this.pageN = 0;
         this.categorieService.catPublisher.subscribe((id: number) => (this.selId = id));
+        this.categorieService.pagePublisher.subscribe((p: number) => {
+            this.pageN = p;
+        });
     }
 
     ngOnInit() {
@@ -28,5 +33,13 @@ export class SidebarComponent implements OnInit {
             // remove the categorie id from queryParams
             this.router.navigate(['/products'], { queryParams: { categorieid: null }, queryParamsHandling: 'merge' });
         }
+    }
+
+    filterPage(pId: number) {
+        this.pageN = pId;
+        if (this.pageN == 0) {
+            this.pageN = null;
+        }
+        this.router.navigate(['/products'], { queryParams: { page: this.pageN }, queryParamsHandling: 'merge' });
     }
 }

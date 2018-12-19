@@ -13,6 +13,7 @@ export class ProductlistComponent implements OnInit {
     products: Product[] = [];
     name: string;
     categorie: number;
+    page: number;
 
     constructor(
         private productService: ProductService,
@@ -24,16 +25,24 @@ export class ProductlistComponent implements OnInit {
         this.activatedRoute.queryParams.subscribe((params: Params) => {
             this.name = params['name'];
             this.categorie = params['categorieid'];
+            this.page = params['page'];
         });
 
         /* Changement par Name */
-        this.productService.searchFor(this.name, this.categorie).subscribe((prods: Product[]) => (this.products = prods));
+        this.productService.searchFor(this.name, this.categorie, this.page).subscribe((prods: Product[]) => (this.products = prods));
 
         /* Chargement de la categorie */
         if (this.categorie != null) {
             this.categorieService.setCategorie(this.categorie);
         } else {
             this.categorieService.setCategorie(0);
+        }
+
+        /* Chargement de la page */
+        if (this.page != null) {
+            this.categorieService.setPage(this.page);
+        } else {
+            this.categorieService.setPage(0);
         }
     }
 }

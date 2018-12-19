@@ -29,9 +29,13 @@ export class JhiMainComponent implements OnInit {
 
         /* Chargement du Panier */
         for (let i = 0; i < sessionStorage.length; i++) {
-            const id = sessionStorage.key(i);
-            const value = sessionStorage.getItem(id);
-            this.panierService.setItem(parseInt(id, 10), parseInt(value, 10));
+            const sid = sessionStorage.key(i);
+            if (sid.startsWith('pan-')) {
+                const id = sid.replace('pan-', '');
+                const value = sessionStorage.getItem(sid);
+                console.log(parseInt(id, 10), parseInt(value, 10));
+                this.panierService.setItem(parseInt(id, 10), parseInt(value, 10));
+            }
         }
     }
 }

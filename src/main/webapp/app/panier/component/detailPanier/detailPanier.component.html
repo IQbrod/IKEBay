@@ -6,7 +6,7 @@
         <div id="sider">
                 <p>{{totQte}} articles</p>
                 <p>{{computeTotalPrice()}} €</p>
-                <a routerLink="/paiement"><button>Commander</button></a>
+                <a routerLink="/paiement"><button [disabled]="totQte == 0">Commander</button></a>
         </div>
     </div>
 </div>
