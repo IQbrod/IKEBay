@@ -1,9 +1,13 @@
-<div *ngIf="stock">
-	<p id="stock-id">id: {{stock.id}}</p>
-	<p id="stock-quantite">stock: {{stock.quantite}} </p>
-	<jhi-stock-quick-add [id]=stock.id></jhi-stock-quick-add> 
-	<jhi-stock-quick-remove [id]=stock.id></jhi-stock-quick-remove> 
-	<input type = "text" size="5" (keydown)="onKeydown($event)" value="0" id="myQuantite">
+<div *ngIf="stock" id="stockSup">
+	<div id="stockLeft">
+		<img alt="Product image" height="50" width="50" src="https://s3.eu-west-3.amazonaws.com/stockageimageikebay/productspic/{{product.photolink}}">
+    	<p id="name">{{product.name}}</p>
+	</div>
+	<div id="stockRight">
+		<jhi-stock-quick-add [id]=stock.id></jhi-stock-quick-add> 
+		<input type = "text" size="5" (keydown)="onKeydown($event)" value={{stock.quantite}} id="myQuantite">
+		<jhi-stock-quick-remove [id]=stock.id></jhi-stock-quick-remove> 
+	</div>
 </div> 
 
 

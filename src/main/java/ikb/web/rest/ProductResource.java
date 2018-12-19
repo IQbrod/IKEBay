@@ -49,7 +49,7 @@ public class ProductResource {
      */
     @GetMapping("/products/{id:" + Constants.ID_REGEX + "}")
     @Timed
-    public ResponseEntity<ProductDTO> getUser(@PathVariable Long id) {
+    public ResponseEntity<ProductDTO> getProduct(@PathVariable Long id) {
         log.debug("REST request to get Product : {}", id);
         return ResponseUtil.wrapOrNotFound(productService.getProduct(id));
     }
