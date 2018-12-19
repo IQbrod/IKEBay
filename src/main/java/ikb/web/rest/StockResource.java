@@ -28,6 +28,9 @@ import ikb.service.dto.StockDTO;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Optional;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api")
@@ -123,5 +126,22 @@ public class StockResource {
                 .headers(HeaderUtil.createAlert( "A stock is created with identifier " + newStock.getId(), Long.toString(newStock.getId())))
                 .body(newStock);
         }
+    }
+
+    /**
+     * PUT /stocks : Updates an existing Stock.
+     *
+     * @param stockDTO the stock to update
+     * @return the ResponseEntity with status 200 (OK) and with body the updated stock
+     */
+    @PutMapping("/stocks")
+    @Timed
+    @PreAuthorize("hasRole(\"" + AuthoritiesConstants.VENDOR + "\")")
+    public ResponseEntity<StockDTO> updateStock(@Valid @RequestBody StockDTO stockDTO) {
+        log.debug("REST request to update Stock : {}", stockDTO);
+        Optional<StockDTO> updatedStock = stockService.updateStock(stockDTO);
+
+        return ResponseUtil.wrapOrNotFound(updatedStock,
+            HeaderUtil.createAlert("A stock is updated with identifier " + stockDTO.getId(), stockDTO.getId().toString()));
     }
 }
