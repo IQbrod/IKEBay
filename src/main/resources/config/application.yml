@@ -120,8 +120,8 @@ jhipster:
         license:
         license-url:
 
-logging:
-    file: target/IKEBay.log
+#logging:
+   # file: target/IKEBay.log
 
 # ===================================================================
 # Application specific properties

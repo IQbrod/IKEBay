@@ -43,9 +43,9 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:file:./target/h2db/db/ikebay;DB_CLOSE_DELAY=-1
-        username: IKEBay
-        password:
+        url: jdbc:mysql://google/ikebay-data?cloudSqlInstance=ikebay-2:europe-west1:ikebay&socketFactory=com.google.cloud.sql.mysql.SocketFactory&useSSL=false
+        username: root
+        password: root
         hikari:
             auto-commit: false
     h2:
