@@ -9,7 +9,7 @@ import { PanierService } from 'app/panier/service/panier.service';
 })
 export class DetailPanierComponent implements OnInit {
     @Input() public panier: Map<Number, PanierEntry>;
-    totQte: number;
+    @Input() totQte: number;
     constructor(private panServ: PanierService) {}
 
     ngOnInit() {
