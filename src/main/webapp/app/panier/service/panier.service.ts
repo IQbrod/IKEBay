@@ -38,13 +38,16 @@ export class PanierService {
             this.panier.set(id, entry);
         }
         // Ajout Session
-        sessionStorage.setItem(id.toString(), entry.quantity.toString());
+        console.log(entry.quantity);
+        console.log(entry.quantity.toString());
+        console.log('pan-' + id.toString(), entry.quantity.toString());
+        sessionStorage.setItem('pan-' + id.toString(), entry.quantity.toString());
 
         // Verification valeur != 0
         if (this.panier.get(id).quantity === -1) {
             this.panier.delete(id);
             // Suppression Session
-            sessionStorage.removeItem(id.toString());
+            sessionStorage.removeItem('pan-' + id.toString());
         } else {
             this.totQte += qte;
             this.publishQte(this.totQte);
@@ -67,11 +70,18 @@ export class PanierService {
     }
 
     ViderPanier() {
+        // Vider Session
+        let i = sessionStorage.length;
+        while (i--) {
+            const key = sessionStorage.key(i);
+            if (key.startsWith('pan-')) {
+                sessionStorage.removeItem(key);
+            }
+        }
+
         this.panier.clear();
         this.totQte = 0;
         this.publishQte(this.totQte);
-        // Vider Session
-        sessionStorage.clear();
     }
 
     private publishQte(message: number) {
