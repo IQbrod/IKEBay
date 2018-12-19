@@ -29,7 +29,7 @@ export class ProductlistComponent implements OnInit {
         });
 
         /* Changement par Name */
-        this.productService.searchFor(this.name, this.categorie).subscribe((prods: Product[]) => (this.products = prods));
+        this.productService.searchFor(this.name, this.categorie, this.page).subscribe((prods: Product[]) => (this.products = prods));
 
         /* Chargement de la categorie */
         if (this.categorie != null) {
@@ -41,6 +41,8 @@ export class ProductlistComponent implements OnInit {
         /* Chargement de la page */
         if (this.page != null) {
             this.categorieService.setPage(this.page);
+        } else {
+            this.categorieService.setPage(0);
         }
     }
 }

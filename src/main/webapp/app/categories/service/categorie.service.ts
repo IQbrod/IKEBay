@@ -29,7 +29,7 @@ export class CategorieService {
     }
 
     setPage(pN: number) {
-        if (pN > 0) {
+        if (pN >= 0) {
             this.pageSelected.next(pN);
         }
     }

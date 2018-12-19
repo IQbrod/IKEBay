@@ -7,6 +7,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -80,11 +81,15 @@ public class ProductResource {
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     @Timed
-    public ResponseEntity<List<ProductDTO>> searchProducts(@RequestParam(value = "name", required = false) String name,
+    public ResponseEntity<List<ProductDTO>> searchProducts(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "page", required = false) Integer p,
             @RequestParam(value = "categorieid", required = false) Long categorieid, Pageable pageable) {
         final Page<ProductDTO> page;
-        log.debug("==== NAME ==== '" + name + "'"+ "==== CATEGORIE ==== '" + categorieid + "'");
+        log.error("==== NAME ==== '" + name + "'"+ "==== CATEGORIE ==== '" + categorieid+ "==== PAGE ==== '" + p + "'");
 
+        if (p==null) {
+            p = 0;
+        }
+        pageable = PageRequest.of(p,20);
 
         if(name==null && categorieid == null){
             log.debug("==== ALL PRODUCTS ==== ");

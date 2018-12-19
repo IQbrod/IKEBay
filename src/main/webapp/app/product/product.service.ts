@@ -38,20 +38,23 @@ export class ProductService {
         // console.log('call : ', name);
         return this.http.get<Product[]>(`${this.resourceUrl}?name=${name}`, { observe: 'response' }).pipe(map(res => res.body));
     } */
-    searchFor(name: String, categorie: number): Observable<Product[]> {
+    searchFor(name: String, categorie: number, page: number): Observable<Product[]> {
         // console.log('call : ', name);
-        if (name == null && categorie == null) {
-            return this.http.get<Product[]>(this.resourceUrl, { observe: 'response' }).pipe(map(res => res.body));
-        } else if (name == null && categorie != null) {
-            return this.http
-                .get<Product[]>(`${this.resourceUrl}?categorieid=${categorie}`, { observe: 'response' })
-                .pipe(map(res => res.body));
-        } else if (name != null && categorie == null) {
-            return this.http.get<Product[]>(`${this.resourceUrl}?name=${name}`, { observe: 'response' }).pipe(map(res => res.body));
-        } else {
-            return this.http
-                .get<Product[]>(`${this.resourceUrl}?name=${name}&categorieid=${categorie}`, { observe: 'response' })
-                .pipe(map(res => res.body));
+        var p = '?';
+        if (name != null) {
+            p += 'name=' + name + '&';
         }
+        if (categorie != null) {
+            p += 'categorieid=' + categorie + '&';
+        }
+        if (page != null) {
+            p += 'page=' + page + '&';
+        }
+
+        p = p.slice(0, p.length - 1);
+
+        console.log(p);
+
+        return this.http.get<Product[]>(this.resourceUrl + p, { observe: 'response' }).pipe(map(res => res.body));
     }
 }
