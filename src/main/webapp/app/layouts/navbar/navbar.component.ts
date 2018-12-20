@@ -72,6 +72,6 @@ export class NavbarComponent implements OnInit {
     sendSearch() {
         // this.productService.searchFor(this.sbinput);
         // console.log(this.sbinput);
-        this.router.navigate(['/products'], { queryParams: { name: this.sbinput }, queryParamsHandling: 'merge' });
+        this.router.navigate(['/products'], { queryParams: { name: this.sbinput, page: null }, queryParamsHandling: 'merge' });
     }
 }

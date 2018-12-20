@@ -84,7 +84,7 @@ public class ProductResource {
     public ResponseEntity<List<ProductDTO>> searchProducts(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "page", required = false) Integer p,
             @RequestParam(value = "categorieid", required = false) Long categorieid, Pageable pageable) {
         final Page<ProductDTO> page;
-        log.error("==== NAME ==== '" + name + "'"+ "==== CATEGORIE ==== '" + categorieid+ "==== PAGE ==== '" + p + "'");
+        log.debug("==== NAME ==== '" + name + "'"+ "==== CATEGORIE ==== '" + categorieid+ "==== PAGE ==== '" + p + "'");
 
         if (p==null) {
             p = 0;
