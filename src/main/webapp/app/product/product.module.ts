@@ -10,7 +10,7 @@ import { ProductRoute } from './product.route';
 import { CategorieModule } from 'app/categories/categorie.module';
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forRoot(ProductRoute), PanierModule],
+    imports: [CommonModule, RouterModule.forRoot(ProductRoute), PanierModule, CategorieModule],
     declarations: [SimpleviewComponent, DetailedviewComponent, ProductlistComponent],
     exports: [SimpleviewComponent, DetailedviewComponent, ProductlistComponent]
 })
