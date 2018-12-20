@@ -40,7 +40,7 @@ export class ProductService {
     } */
     searchFor(name: String, categorie: number, page: number): Observable<Product[]> {
         // console.log('call : ', name);
-        var p = '?';
+        let p = '?';
         if (name != null) {
             p += 'name=' + name + '&';
         }
