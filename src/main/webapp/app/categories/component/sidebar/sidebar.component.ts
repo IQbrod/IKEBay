@@ -28,10 +28,16 @@ export class SidebarComponent implements OnInit {
 
     filter(cat: string) {
         if (cat !== '0') {
-            this.router.navigate(['/products'], { queryParams: { categorieid: cat }, queryParamsHandling: 'merge' });
+            this.router.navigate(['/products'], {
+                queryParams: { categorieid: cat, page: null, name: null },
+                queryParamsHandling: 'merge'
+            });
         } else {
             // remove the categorie id from queryParams
-            this.router.navigate(['/products'], { queryParams: { categorieid: null }, queryParamsHandling: 'merge' });
+            this.router.navigate(['/products'], {
+                queryParams: { categorieid: null, page: null, name: null },
+                queryParamsHandling: 'merge'
+            });
         }
     }
 
