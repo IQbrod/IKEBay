@@ -20,12 +20,12 @@ public interface ProductRepository extends JpaRepository<Product, Integer>, Pagi
     //Page<Product> findByNameLike(String name, Pageable pageable);
     List<Product> findByNameLikeOrderByPrice(String name);
 
-    @Query("SELECT p FROM Product p WHERE p.name LIKE CONCAT('%',:name,'%')")
+    @Query("SELECT p FROM Product p WHERE p.name LIKE :name")
     Page<Product> findByNameLike(@Param("name") String name, Pageable pageable);
 
     @Query("SELECT p FROM Product p LEFT JOIN p.categories b WHERE b.id = :id")
     Page<Product> findByCategorie(@Param("id") Long id, Pageable pageable);
 
-    @Query("SELECT p FROM Product p LEFT JOIN p.categories b WHERE p.name LIKE CONCAT('%',:name,'%') AND b.id = :id")
+    @Query("SELECT p FROM Product p LEFT JOIN p.categories b WHERE p.name LIKE :name AND b.id = :id")
     Page<Product> findByNameLikeAndCategorieEquals(@Param("name") String name, @Param("id") Long id, Pageable pageable);
 }

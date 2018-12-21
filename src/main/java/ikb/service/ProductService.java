@@ -1,20 +1,17 @@
 package ikb.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ikb.product.Product;
 import ikb.repository.ProductRepository;
 import ikb.service.dto.ProductDTO;
-
-import ikb.service.util.ObjectMapperUtils;
 
 /**
  * Service class for managing users.
@@ -40,11 +37,13 @@ public class ProductService {
     }
 
     public Page<ProductDTO> getProductsByName(String name, Pageable pageable) {
-        return productRepository.findByNameLike(name, pageable).map(ProductDTO::new);
+        String namelike = '%' + name + '%';
+        return productRepository.findByNameLike(namelike, pageable).map(ProductDTO::new);
     }
 
     public Page<ProductDTO> getProductsByNameAndCategorie(String name, Long id, Pageable pageable) {
-        return productRepository.findByNameLikeAndCategorieEquals(name, id, pageable).map(ProductDTO::new);
+        String namelike = '%' + name + '%';
+        return productRepository.findByNameLikeAndCategorieEquals(namelike, id, pageable).map(ProductDTO::new);
     }
 
     public Page<ProductDTO> getProductsByCategorie(Long id, Pageable pageable) {
